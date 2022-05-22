@@ -5,6 +5,8 @@ import auth from '../../firebase/firebase.config'
 import Loading from '../Shared/Loading/Loading';
 import { FaSignOutAlt } from "react-icons/fa";
 import { signOut } from 'firebase/auth';
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function Navbar({ children }) {
     const [user, loading] = useAuthState(auth);
@@ -64,6 +66,7 @@ function Navbar({ children }) {
                     }
                 </ul>
             </div>
+            <ToastContainer/>
         </div>
     )
 }
