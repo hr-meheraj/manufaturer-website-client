@@ -11,13 +11,22 @@ import RequireAuth from "./authentication/RequireAuth/RequireAuth";
 import Dashboard from "./components/pages/Dashboard/Dashboard";
 import NotFound from "./components/Shared/NotFound/NotFound";
 import Contact from "./components/pages/Contact/Contact";
+import Orders from "./components/pages/Dashboard/Orders";
+import AddReview from "./components/pages/Dashboard/AddReview";
+import Profile from "./components/pages/Dashboard/Profile";
+import IndexDashboard from "./components/pages/Dashboard/IndexDashboard";
 function App() {
   return (
     <Navbar>
         <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/purchase' element={<RequireAuth><Perchase/></RequireAuth>} />
-            <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>} />
+            <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>} >
+                <Route index element={<IndexDashboard/>}/>
+                <Route path='orders' element={ <Orders/>}/>
+                <Route path='review' element={ <AddReview/>}/>
+                <Route path='profile' element={ <Profile/>}/>
+            </Route>
             <Route path='register' element={<Register/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/blogs' element={<Blogs/>} />

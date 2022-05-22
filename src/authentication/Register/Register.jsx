@@ -43,7 +43,7 @@ function Register() {
 
     const onSubmit = async (data) => { 
        await createUserWithEmailAndPassword(data.email, data.password);
-       await updateError({ displayName : data.name})
+       await updateProfile({ displayName : data.name})
        if(user?.uid){
          toast.success("Successfully Logged User");
        }

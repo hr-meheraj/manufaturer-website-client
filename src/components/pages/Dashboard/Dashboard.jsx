@@ -1,10 +1,12 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import DashboardDrawer from './DashboardDrawer'
 
 function Dashboard() {
     return (
-        <div>
-            Dashboard
-        </div>
+      <DashboardDrawer>
+          <Outlet/>
+      </DashboardDrawer>
     )
 }
 
