@@ -9,17 +9,21 @@ import MyPortfolio from "./components/pages/MyPortfolio/MyPortfolio";
 import ForgotPassword from "./authentication/FogetPassword/ForgotPassword";
 import RequireAuth from "./authentication/RequireAuth/RequireAuth";
 import Dashboard from "./components/pages/Dashboard/Dashboard";
+import NotFound from "./components/Shared/NotFound/NotFound";
+import Contact from "./components/pages/Contact/Contact";
 function App() {
   return (
     <Navbar>
         <Routes>
             <Route path='/' element={<Home/>} />
-            <Route path='/perchase' element={<RequireAuth><Perchase/></RequireAuth>} />
+            <Route path='/purchase' element={<RequireAuth><Perchase/></RequireAuth>} />
             <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>} />
             <Route path='register' element={<Register/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/blogs' element={<Blogs/>} />
+            <Route path='/contact' element={<Contact/>} />
             <Route path='/about-me' element={<MyPortfolio/>} />
+            <Route path='*' element={<NotFound/>}/>
             <Route path='reset-password' element={<ForgotPassword/>}/>
         </Routes>
     </Navbar>

@@ -2,14 +2,17 @@ import React from 'react'
 import Footer from '../../Shared/Footer/Footer'
 import Loading from '../../Shared/Loading/Loading';
 import Banner from './Banner';
+import BusinessSummary from './BusinessSummary';
+import CallToAction from './CallToAction';
 
 function Home() {
 
     return (
-        <div className='max-x-[1180px] mx-auto'>        
+        <div className='max-x-[1180px] max-w-[95%]  mx-auto'>        
             <Banner/>
+            <BusinessSummary/>
+            <CallToAction/>
             <Footer/>
-
         </div>
     )
 }

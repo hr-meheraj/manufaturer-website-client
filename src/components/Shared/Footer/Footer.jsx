@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 function Footer() {
     return (
-        <footer class="footer bg-[teal] w-[95%] p-10 text-base-content">
+        <footer class="footer  rounded-md  mt-[40px] p-10 text-base-content">
 
         <div>
           <span class="footer-title">Services</span> 

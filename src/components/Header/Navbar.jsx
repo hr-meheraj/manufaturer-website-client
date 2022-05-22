@@ -21,9 +21,10 @@ function Navbar({ children }) {
                     <div class="flex-none hidden lg:block">
                         <ul class="menu menu-horizontal gap-[15px]">
                             <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink to="/perchase">Perchase</NavLink></li>
+                            <li><NavLink to="/purchase">Purchase</NavLink></li>
                             <li><NavLink to="/blogs">Blogs</NavLink></li>
                             <li><NavLink to="/about-me">My Portfolio</NavLink></li>
+                            <li><NavLink to="/contact">Contact</NavLink></li>
                             {
                                 user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                             }
@@ -47,9 +48,11 @@ function Navbar({ children }) {
                 <label for="nav-menu-drawer" class="drawer-overlay"></label>
                 <ul class="menu p-4 gap-[15px] overflow-y-auto w-80 bg-base-100">
                     <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/perchase">Perchase</NavLink></li>
+                    <li><NavLink to="/purchase">Purchase</NavLink></li>
                     <li><NavLink to="/blogs">Blogs</NavLink></li>
                     <li><NavLink to="/about-me">My Portfolio</NavLink></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li>
+    
                     {
                         user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                     }
