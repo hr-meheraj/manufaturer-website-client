@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, NavLink } from 'react-router-dom'
+import auth from '../../firebase/firebase.config'
+import Loading from '../Shared/Loading/Loading';
+import { FaSignOutAlt } from "react-icons/fa";
+import { signOut } from 'firebase/auth';
 
 function Navbar({ children }) {
+    const [user, loading] = useAuthState(auth);
+
+    if (loading) {
+        return <Loading />
+    }
     return (
         <div class="drawer  drawer-end">
             <input id="nav-menu-drawer" type="checkbox" class="drawer-toggle" />
@@ -9,12 +19,20 @@ function Navbar({ children }) {
                 <div class="w-full navbar shadow-md">
                     <div class="flex-1 px-2 mx-2"><Link to='/' className='text-xl font-semibold text-purple-900 cursor-pointer'>Shop Tools</Link></div>
                     <div class="flex-none hidden lg:block">
-                        <ul class="menu menu-horizontal">
+                        <ul class="menu menu-horizontal gap-[15px]">
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/perchase">Perchase</NavLink></li>
                             <li><NavLink to="/blogs">Blogs</NavLink></li>
                             <li><NavLink to="/about-me">My Portfolio</NavLink></li>
-                            <li><NavLink to="/login">Login</NavLink></li>
+                            {
+                                user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                            }
+                            {
+                                user ? <li><button class="btn gap-2 text-white" onClick={() => signOut(auth)}>
+                                     Sign Out
+                                    <FaSignOutAlt />
+                                </button></li> : <li><NavLink to="/login">Login</NavLink></li>
+                            }
                         </ul>
                     </div>
                     <div class="flex-none lg:hidden">
@@ -27,12 +45,20 @@ function Navbar({ children }) {
             </div>
             <div class="drawer-side">
                 <label for="nav-menu-drawer" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
+                <ul class="menu p-4 gap-[15px] overflow-y-auto w-80 bg-base-100">
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/perchase">Perchase</NavLink></li>
                     <li><NavLink to="/blogs">Blogs</NavLink></li>
                     <li><NavLink to="/about-me">My Portfolio</NavLink></li>
-                    <li><NavLink to="/login">Login</NavLink></li>
+                    {
+                        user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                    }
+                    {
+                        user ? <li><button class="btn gap-2 text-white" onClick={() => signOut(auth)}>
+                            Sign Out
+                        <FaSignOutAlt />
+                        </button></li> : <li><NavLink to="/login">Login</NavLink></li>
+                    }
                 </ul>
             </div>
         </div>
