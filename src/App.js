@@ -7,12 +7,13 @@ import Login from "./authentication/Login/Login";
 import Blogs from "./components/pages/Blogs/Blogs";
 import MyPortfolio from "./components/pages/MyPortfolio/MyPortfolio";
 import ForgotPassword from "./authentication/FogetPassword/ForgotPassword";
+import RequireAuth from "./authentication/RequireAuth/RequireAuth";
 function App() {
   return (
     <Navbar>
         <Routes>
             <Route path='/' element={<Home/>} />
-            <Route path='/perchase' element={<Perchase/>} />
+            <Route path='/perchase' element={<RequireAuth><Perchase/></RequireAuth>} />
             <Route path='register' element={<Register/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/blogs' element={<Blogs/>} />
@@ -21,6 +22,6 @@ function App() {
         </Routes>
     </Navbar>
   );
-}
+} 
 
 export default App;
