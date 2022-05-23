@@ -1,17 +1,31 @@
 import React from 'react'
 import writer from '../../../assets/writer.png'
 import mern from '../../../assets/mern.png'
+import spa from '../../../assets/spa.png'
+import laptop from '../../../assets/laptop.png'
 function Projects() {
     const projects = [
         { 
             imgUrl: writer,
-             viewLink: '' ,
+             viewLink: 'https://writer-auth.web.app' ,
              title : "Writer Services & Authentication Webiste",
              technologies : ["React", "Firebase", "Tailwind CSS"],
             description : "This website quit about Firebase Authentication for Writer Services Selling. This is fully Resposive for all devices and uses Most Power technology Tailwind CSS"},
+        { 
+            imgUrl: laptop,
+             viewLink: 'https://react-laptop-e-commerce.netlify.app/' ,
+             title : "React Laptop E-commerce",
+             technologies : ["React",  "Tailwind CSS"],
+            description : "React js simple laptop e-commerce webiste by tailwindcss and also added it state management"},
+        { 
+            imgUrl: spa,
+             viewLink: 'https://react-router-spa.netlify.app' ,
+             title : "Single Page Router Application",
+             technologies : ["React", "React Router", "Tailwind CSS", "Chart"],
+            description : "This website fully responsive with tailwind CSS - and single page application with chart containing."},
         {
              imgUrl: mern,
-             viewLink: '',
+             viewLink: 'https://mern-inventory.web.app',
              title : " Inventory Management Website",
              technologies : ["React","MongoDB", "Node Express", "JWT for Security","Firebase","Tailwind CSS"],
              description : "This website fully response using Firebase authentication - integrate with Backend Node js -  MongoDB as Database. For Security uses JWT token most powerfull" }
@@ -37,7 +51,7 @@ function Projects() {
                             <p className=''> {description} </p> 
                             <br/>
                            <p>Technologies are uses in this website : </p>
-                           <ul className='list-disc mb-3'>
+                           <ul className='ml-[20px] list-disc mb-3'>
                                {
                                 technologies.map( (tech, index) => <li key={index}> {tech}</li>)
                                } 

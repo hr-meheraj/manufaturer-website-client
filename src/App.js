@@ -15,6 +15,7 @@ import Orders from "./components/pages/Dashboard/Orders";
 import AddReview from "./components/pages/Dashboard/AddReview";
 import Profile from "./components/pages/Dashboard/Profile";
 import IndexDashboard from "./components/pages/Dashboard/IndexDashboard";
+import Blog from "./components/pages/Blogs/Blog";
 function App() {
   return (
     <Navbar>
@@ -29,7 +30,9 @@ function App() {
             </Route>
             <Route path='register' element={<Register/>} />
             <Route path='/login' element={<Login/>} />
-            <Route path='/blogs' element={<Blogs/>} />
+            <Route path='/blogs' element={<Blogs/>} >
+            </Route>
+            <Route path='/blogs/:id' element={<Blog/>}/>
             <Route path='/contact' element={<Contact/>} />
             <Route path='/about-me' element={<MyPortfolio/>} />
             <Route path='*' element={<NotFound/>}/>
