@@ -6,6 +6,7 @@ import Loading from '../../components/Shared/Loading/Loading';
 import { FcGoogle } from 'react-icons/fc'
 import {toast } from 'react-toastify'
 import { useForm } from "react-hook-form";
+import useToken from '../../hooks/useToken';
 function Register() {
     const [signInWithGoogle, gUser, gLoading , gError] = useSignInWithGoogle(auth);
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
@@ -19,12 +20,10 @@ function Register() {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-
-    useEffect(() => {
-        if (gUser || user) {
+    const [token]  = useToken(gUser || user);
+        if(token){
             navigate(from, { replace: true });
         }
-    }, [gUser,user, navigate])
 
     useEffect(() => {
         const occureErr = error || gError ;

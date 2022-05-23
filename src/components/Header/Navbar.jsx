@@ -48,7 +48,7 @@ function Navbar({ children }) {
             </div>
             <div class="drawer-side">
                 <label for="nav-menu-drawer" class="drawer-overlay"></label>
-                <ul class="menu p-4 gap-[15px] overflow-y-auto w-80 bg-base-100">
+                <ul class="menu p-4 gap-[15px] overflow-y-auto w-[250px] bg-[#f4f6f9]">
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/purchase">Purchase</NavLink></li>
                     <li><NavLink to="/blogs">Blogs</NavLink></li>
