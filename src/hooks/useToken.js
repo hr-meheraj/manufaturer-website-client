@@ -3,9 +3,9 @@ import React, {useState,useEffect} from 'react'
 const useToken = (user) => {
     const [token, setToken] = useState('');
     console.log(user);
-    const email = {email : user?.user?.email}
+    const email = {email : user?.user?.email || user?.email, name : user?.user?.displayName || user?.displayName};
     const getToken = async () => {
-        const { data } = await axios.put(`https://manufacturer-server.hrmeheraj.repl.co/${user?.email}`, email);
+        const { data } = await axios.put(`https://manufacturer-server.hrmeheraj.repl.co/users/${user?.email}`, email);
         const accessToken = data?.token
         localStorage.setItem("accessToke", accessToken);
         setToken(accessToken );        

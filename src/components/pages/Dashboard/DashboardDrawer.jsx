@@ -11,7 +11,7 @@ function DashboardDrawer({children}) {
         </div> 
         <div class="drawer-side">
           <label for="dashboard-drawer" class="drawer-overlay"></label> 
-          <ul class="menu p-4 overflow-y-auto w-[250px] bg-[#f4f6f9] mt-[2px] text-base-content">
+          <ul class="menu p-4 overflow-y-auto w-[250px] bg-[#f4f6f9]  mt-[2px] text-base-content">
           
             <li><NavLink to='orders'>My Orders</NavLink></li>
             <li><NavLink to='review'>Add a review</NavLink></li>

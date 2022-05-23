@@ -21,10 +21,6 @@ function Register() {
 
     const from = location.state?.from?.pathname || "/";
     const [token]  = useToken(gUser || user);
-        if(token){
-            navigate(from, { replace: true });
-        }
-
     useEffect(() => {
         const occureErr = error || gError ;
         if(occureErr){
@@ -37,6 +33,13 @@ function Register() {
             }
         }
     },[error, gError])
+    if(user){
+        console.log("inside from register", user);
+    }
+     if(token){
+            navigate(from, { replace: true });
+     }
+
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
