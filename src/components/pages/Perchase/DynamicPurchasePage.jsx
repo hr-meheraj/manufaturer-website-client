@@ -1,19 +1,22 @@
-import React from 'react'
-import { useParams} from 'react-router-dom'
+import React,{useState} from 'react'
+import { useParams,useNavigate} from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Loading from '../../Shared/Loading/Loading';
 import { useForm } from 'react-hook-form'
 import axios from 'axios';
 import auth from '../../../firebase/firebase.config';
+import { toast } from 'react-toastify'
 import PurchaseCard from './PurchaseCard';
+import privateAxios from '../../../api/privateAxios';
 function DynamicPurchasePage() {
+    const [purchasing, setPurchasing]= useState(false);
     const [ user, loading] = useAuthState(auth);
+    const navigate = useNavigate();
     const { id } = useParams();
     const getProduct = async () => {
-        const {data} = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/products/${id}`);
-        console.log(data);
-        return data;
+        const res = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/products/${id}`);
+        return res.data;
     }
     const { data : product, isLoading, refetch} = useQuery('productDynamic', () => getProduct());
     const {
@@ -22,11 +25,24 @@ function DynamicPurchasePage() {
         reset,
         formState: { errors },
     } = useForm();
-    const onSubmit =async  data => {
-        console.log(data);
-    }
-    if(product){
-        console.log('inside product', product);
+    
+    const onSubmit =async (data) => {
+        setPurchasing(true);
+        const postBody = {
+            name : data.name,
+            email : data.email,
+            address : data.address,
+            productName : product.name,
+            perPrice : product.perPrice,
+            quantity : data.quantity,
+            productId : product._id
+        };
+        const resPost = await privateAxios.post(`https://manufacturer-server.hrmeheraj.repl.co/perchase`, postBody);
+        setPurchasing(false);
+        if(resPost.status === 200){
+            toast.success("Success Purchead, Please Check you Dashboard Orders");
+            navigate('/purchase');
+        }
     }
     if (loading || isLoading){
         return  <Loading/>
@@ -73,7 +89,15 @@ function DynamicPurchasePage() {
                                 <label class="label">
                                     <span class="label-text-alt">Present Address: </span>
                                 </label>
-                                <textarea class="textarea w-full block textarea-success" {...register("address")} placeholder="Present Address..."></textarea>
+                                <textarea class="textarea w-full block textarea-success" {...register("address",{
+                                    required : {
+                                        value : true,
+                                        message : 'Address is Required to Reach out your products'
+                                    }
+                                })} placeholder="Present Address..."></textarea>
+                                  <label className="label">
+                                {errors?.address && <span className="label-text-alt text-red-500">{errors.address?.message}</span>}
+                            </label>
                        </div>
                        <div class="form-control">
                             <label class="label">
@@ -98,7 +122,7 @@ function DynamicPurchasePage() {
                             </label>
                         </div>
                         <div class="form-control mt-6">
-                        <button class="btn btn-primary" type='submit'>Purchase</button>
+                        <button class={`btn btn-primary ${purchasing && 'btn-disabled'}`} type='submit'>Purchase</button>
                      </div>
                  </div>
             </form>
