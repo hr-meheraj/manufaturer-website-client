@@ -21,12 +21,14 @@ import RequireAdmin from "./authentication/RequireAdmin/RequireAdmin";
 import AddProducts from "./components/pages/Dashboard/AddProducts";
 import ManageProducts from "./components/pages/Dashboard/ManageProducts";
 import Reviews from "./components/pages/Reviews/Reviews";
+import DynamicPurchasePage from "./components/pages/Perchase/DynamicPurchasePage";
 function App() {
   return (
     <Navbar>
         <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/purchase' element={<RequireAuth><Perchase/></RequireAuth>} />
+            <Route path='/purchase/:id' element={<RequireAuth><DynamicPurchasePage/></RequireAuth>} />
             <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>} >
                 <Route index element={<IndexDashboard/>}/>
                 <Route path='orders' element={ <Orders/>}/>
