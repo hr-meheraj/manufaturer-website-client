@@ -20,6 +20,7 @@ import ManageUsers from "./components/pages/Dashboard/ManageUsers";
 import RequireAdmin from "./authentication/RequireAdmin/RequireAdmin";
 import AddProducts from "./components/pages/Dashboard/AddProducts";
 import ManageProducts from "./components/pages/Dashboard/ManageProducts";
+import Reviews from "./components/pages/Reviews/Reviews";
 function App() {
   return (
     <Navbar>
@@ -37,8 +38,8 @@ function App() {
             </Route>
             <Route path='register' element={<Register/>} />
             <Route path='/login' element={<Login/>} />
-            <Route path='/blogs' element={<Blogs/>} >
-            </Route>
+            <Route path='/reviews' element={<Reviews/>} />
+            <Route path='/blogs' element={<Blogs/>} />
             <Route path='/blogs/:id' element={<Blog/>}/>
             <Route path='/contact' element={<Contact/>} />
             <Route path='/about-me' element={<MyPortfolio/>} />

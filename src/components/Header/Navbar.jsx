@@ -28,6 +28,7 @@ function Navbar({ children }) {
                             <li><NavLink to="/purchase">Purchase</NavLink></li>
                             <li><NavLink to="/blogs">Blogs</NavLink></li>
                             <li><NavLink to="/about-me">My Portfolio</NavLink></li>
+                            <li><NavLink to="/reviews">Reviews</NavLink></li>
                             <li><NavLink to="/contact">Contact</NavLink></li>
                             {
                                 user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
@@ -57,6 +58,7 @@ function Navbar({ children }) {
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/purchase">Purchase</NavLink></li>
                     <li><NavLink to="/blogs">Blogs</NavLink></li>
+                    <li><NavLink to="/reviews">Reviews</NavLink></li>
                     <li><NavLink to="/about-me">My Portfolio</NavLink></li>
                     <li><NavLink to="/contact">Contact</NavLink></li>
     
