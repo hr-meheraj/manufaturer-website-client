@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import auth from '../../firebase/firebase.config'
 import Loading from '../Shared/Loading/Loading';
 import { FaSignOutAlt } from "react-icons/fa";
+import { AiOutlineDoubleLeft} from 'react-icons/ai'
 import { signOut } from 'firebase/auth';
   import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +20,7 @@ function Navbar({ children }) {
             <input id="nav-menu-drawer" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content flex flex-col">
                 <div class="w-full navbar shadow-md">
+                <label for="dashboard-drawer" class="btn drawer-button lg:hidden"><AiOutlineDoubleLeft/></label>
                     <div class="flex-1 px-2 mx-2"><Link to='/' className='text-xl font-semibold text-purple-900 cursor-pointer'>Shop Tools</Link></div>
                     <div class="flex-none hidden lg:block">
                         <ul class="menu menu-horizontal gap-[15px]">
@@ -31,7 +33,10 @@ function Navbar({ children }) {
                                 user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                             }
                             {
-                                user ? <li><button class="btn gap-2 text-white" onClick={() => signOut(auth)}>
+                                user ? <li><button class="btn gap-2 text-white" onClick={() => {
+                                    localStorage.removeItem("accessToken");
+                                    signOut(auth);
+                                }}>
                                      Sign Out
                                     <FaSignOutAlt />
                                 </button></li> : <li><NavLink to="/login">Login</NavLink></li>
@@ -59,7 +64,10 @@ function Navbar({ children }) {
                         user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                     }
                     {
-                        user ? <li><button class="btn gap-2 text-white" onClick={() => signOut(auth)}>
+                        user ? <li><button class="btn gap-2 text-white" onClick={() =>{
+                            localStorage.removeItem("accessToken");
+                            signOut(auth);
+                        }}>
                             Sign Out
                         <FaSignOutAlt />
                         </button></li> : <li><NavLink to="/login">Login</NavLink></li>

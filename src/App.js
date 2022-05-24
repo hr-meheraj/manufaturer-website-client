@@ -16,6 +16,10 @@ import AddReview from "./components/pages/Dashboard/AddReview";
 import Profile from "./components/pages/Dashboard/Profile";
 import IndexDashboard from "./components/pages/Dashboard/IndexDashboard";
 import Blog from "./components/pages/Blogs/Blog";
+import ManageUsers from "./components/pages/Dashboard/ManageUsers";
+import RequireAdmin from "./authentication/RequireAdmin/RequireAdmin";
+import AddProducts from "./components/pages/Dashboard/AddProducts";
+import ManageProducts from "./components/pages/Dashboard/ManageProducts";
 function App() {
   return (
     <Navbar>
@@ -27,6 +31,9 @@ function App() {
                 <Route path='orders' element={ <Orders/>}/>
                 <Route path='review' element={ <AddReview/>}/>
                 <Route path='profile' element={ <Profile/>}/>
+                <Route path='manage-users' element={ <RequireAdmin><ManageUsers/></RequireAdmin>}/>
+                <Route path='add-product' element={ <RequireAdmin><AddProducts/></RequireAdmin>}/>
+                <Route path='manage-products' element={ <RequireAdmin><ManageProducts/></RequireAdmin>}/>
             </Route>
             <Route path='register' element={<Register/>} />
             <Route path='/login' element={<Login/>} />

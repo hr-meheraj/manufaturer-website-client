@@ -5,7 +5,6 @@ const privateAxios = axios.create();
 privateAxios.interceptors.request.use(
   function (config) {
     if (!config.headers.authorization) {
-      console.log(config);
       config.headers.authorization = `Bearer ${localStorage.getItem(
         'accessToken'
       )}`;

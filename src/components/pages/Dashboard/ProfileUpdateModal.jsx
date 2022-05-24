@@ -14,19 +14,17 @@ function ProfileUpdateModal({ userInfo, setUserInfo, refetch }) {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = async data => {
         setUpdating(true);
-        console.log(data);
         await updateProfile({ displayName: data.name });
         await axios.put(`https://manufacturer-server.hrmeheraj.repl.co/users/${userInfo?.email}`, data);
+        refetch();
         setUpdating(false);
         toast.success("User Updated Successfully")
-        refetch();
         setUserInfo(null);
     }
     useEffect(() => {
         (async () => {
             setLoading(true);
             const { data } = await axios.get('https://restcountries.com/v2/all?fields=name');
-            console.log(data);
             setLoading(false);
             setCountries(data);
         })()
@@ -67,23 +65,24 @@ function ProfileUpdateModal({ userInfo, setUserInfo, refetch }) {
                             </div>
                             <div class="form-control w-full max-w-xs mb-[15px]">
                                
-                            <select class="select select-bordered w-full  max-w-xs" {...register("country")}>
+                            <select class="select select-bordered w-full block max-w-xs" {...register("country")}>
                                 <option disabled selected>Country?</option>
                                 {
                                     countries?.map((country, i) => <option key={i}>{country.name}</option>)
                                 }
                             </select>
-            
+                            </div>
+                            <div class="form-control w-full max-w-xs mb-[15px]">
+                            <input type="text"  {...register("city")} placeholder='City' class="input input-bordered w-full max-w-xs" />
                             </div>
 
-                            <input type="text"  {...register("city")} placeholder='City' class="input input-bordered w-full max-w-xs" />
                             <div class="form-control w-full max-w-xs mt-[5px]">
                                 <label class="label">
                                     <span class="label-text-alt">Present Address: </span>
                                 </label>
                                 <textarea class="textarea " {...register("address")} placeholder="Present Address..."></textarea>
                             </div>
-                            <button className={`w-full btn btn-primary mt-[15px] block ${updating && "loading"}`} disabled={updating}>loading</button>
+                            <button className={`w-full btn btn-primary mt-[15px] block`} disabled={updating}>loading</button>
                         </form>
                     </div>
                 </div>
