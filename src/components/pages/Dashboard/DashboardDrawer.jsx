@@ -37,6 +37,7 @@ function DashboardDrawer({ children }) {
                                 <li><NavLink to='manage-users'>Manage Users</NavLink> </li>
                                 <li><NavLink to='add-product'>Add Product</NavLink> </li>
                                 <li><NavLink to='manage-products'>Manage Product</NavLink> </li>
+                                <li><NavLink to='manage-orders'>Manage Orders</NavLink> </li>
                             </>
                         )
                     }

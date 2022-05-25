@@ -16,7 +16,7 @@ function IndexDashboard() {
                 <div className='text-center'>
                     <h2 className='py-2 text-2xl font-bold text-primary'> Welcome to Dashboard! </h2> 
                     <p className='font-semibold text-gray-600'>Explore All of the Features and Give a Review. </p>
-                    <Link to='profile' className='mt-[15px] btn '>My Orders  </Link>
+                    <Link to='profile' className='mt-[15px] btn '>My Profile  </Link>
                 </div>
             </div>
         </div>

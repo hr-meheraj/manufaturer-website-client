@@ -23,6 +23,7 @@ import ManageProducts from "./components/pages/Dashboard/ManageProducts";
 import Reviews from "./components/pages/Reviews/Reviews";
 import DynamicPurchasePage from "./components/pages/Perchase/DynamicPurchasePage";
 import Payment from "./components/pages/Dashboard/Payment";
+import ManageOrders from "./components/pages/Dashboard/ManageOrders";
 function App() {
   return (
     <Navbar>
@@ -37,6 +38,7 @@ function App() {
                 <Route path='review' element={ <AddReview/>}/>
                 <Route path='profile' element={ <Profile/>}/>
                 <Route path='manage-users' element={ <RequireAdmin><ManageUsers/></RequireAdmin>}/>
+                <Route path='manage-orders' element={ <RequireAdmin><ManageOrders/></RequireAdmin>}/>
                 <Route path='add-product' element={ <RequireAdmin><AddProducts/></RequireAdmin>}/>
                 <Route path='manage-products' element={ <RequireAdmin><ManageProducts/></RequireAdmin>}/>
             </Route>

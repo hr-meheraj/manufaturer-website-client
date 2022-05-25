@@ -59,8 +59,8 @@ function Skills() {
                 skills.map(skill => {
                     const { title , Logo, id} = skill;
                     return(
-                        <div key={id} className='p-4 rounded-md shadow-md text-white skills text-white'>
-                            <div className='text-6xl mb-3 text-center w-full flex justify-center text-[#5fff2b]'> <Logo/> </div> 
+                        <div key={id} className='p-4 rounded-md shadow-md  skills text-white'>
+                            <div className='text-6xl mb-3 text-center w-full flex justify-center '> <Logo/> </div> 
                             <h2 className='text-center text-xl '>{title}</h2> 
                         </div>
                     )
