@@ -80,25 +80,25 @@ function AddProducts() {
                 </span>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div class="card  w-full mx-auto max-w-[550px]  shadow-2xl bg-base-100">
-                    <div class="card-body">
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Product Name</span>
+                <div className="card  w-full mx-auto max-w-[550px]  shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Product Name</span>
                             </label>
                             <input type="text" {...register("name", {
                                 required: {
                                     value : true,
                                     message : 'Product name is Required'
                                 }
-                            })} placeholder="Enter product name" class="input input-bordered" />
+                            })} placeholder="Enter product name" className="input input-bordered" />
                             <label className="label">
                                 {errors?.name && <span className="label-text-alt text-red-500">{errors.name?.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Price Per Pice</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Price Per Pice</span>
                             </label>
                             <input type="number" {...register("perPrice",{
                                 required: {
@@ -109,14 +109,14 @@ function AddProducts() {
                                     value : 5,
                                     message : 'Minimun Per Price should up to $5'
                                 }
-                            })} placeholder="Enter the each pice price" class="input input-bordered" />
+                            })} placeholder="Enter the each pice price" className="input input-bordered" />
                             <label className="label">
                                 {errors?.perPrice && <span className="label-text-alt text-red-500">{errors.perPrice?.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Quantity</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Quantity</span>
                             </label>
                             <input type="number" {...register("quantity",{
                                 required: {
@@ -127,14 +127,14 @@ function AddProducts() {
                                     value : 100,
                                     message : 'Minimun product should be 100+'
                                 }
-                            })} placeholder="Quantity" class="input input-bordered" />
+                            })} placeholder="Quantity" className="input input-bordered" />
                             <label className="label">
                                 {errors?.quantity && <span className="label-text-alt text-red-500">{errors.quantity?.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Minimun Order Quantity</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Minimun Order Quantity</span>
                             </label>
                             <input type="number" {...register("minQuantity",{
                                 required: {
@@ -145,14 +145,14 @@ function AddProducts() {
                                     value : 10,
                                     message : 'Minium Quanity 10 '
                                 }
-                            })} placeholder="Minimun order Quantity" class="input input-bordered" />
+                            })} placeholder="Minimun order Quantity" className="input input-bordered" />
                             <label className="label">
                                 {errors?.minQuantity && <span className="label-text-alt text-red-500">{errors.minQuantity?.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Short Description</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Short Description</span>
                             </label>
                             <textarea {...register("description", {
                                 required: {
@@ -167,13 +167,13 @@ function AddProducts() {
                                     value : 100,
                                     message : 'Maximun Length is 100 Character'
                                 }
-                            })} placeholder="short text..." class="input input-bordered" />
+                            })} placeholder="short text..." className="input input-bordered" />
                             <label className="label">
                                 {errors?.description && <span className="label-text-alt text-red-500">{errors.description?.message}</span>}
                             </label>
                         </div>
-                        <div class='form-control'>
-                            <label class='label btn btn-primary flex justify-center items-center gap-[15px] w-full block' for='file-upload'>
+                        <div className='form-control'>
+                            <label className='label btn btn-primary flex justify-center items-center gap-[15px] w-full block' for='file-upload'>
                                  Upload <span className='text-[22px]'> <GoCloudUpload /> </span>
                             </label>
                             <input
@@ -185,14 +185,14 @@ function AddProducts() {
                                         message : 'Image is Required'
                                     }
                                 })}
-                                class='input hidden input-bordered'
+                                className='input hidden input-bordered'
                             />
                               <label className="label">
                                 {errors?.image && <span className="label-text-alt text-red-500">{errors.image?.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control mt-6">
-                            <button class={`btn btn-primary ${loading && 'btn-disabled'}`} type="submit">Add Product</button>
+                        <div className="form-control mt-6">
+                            <button className={`btn btn-primary ${loading && 'btn-disabled'}`} type="submit">Add Product</button>
                         </div>
                     </div>
                 </div>

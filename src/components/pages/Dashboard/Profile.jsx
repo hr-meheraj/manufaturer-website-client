@@ -30,8 +30,8 @@ function Profile() {
             <hr />
             <div className='grid grid-cols-1 md:grid-cols-2 gap-[20px] mt-[40px] profile'>
                <div className='flex justify-center items-center '>
-                 <div class="avatar online">
-                    <div class="w-[160px] rounded-full">
+                 <div className="avatar online">
+                    <div className="w-[160px] rounded-full">
                         <img src="https://api.lorem.space/image/face?hash=28212" />
                     </div>
                 </div>

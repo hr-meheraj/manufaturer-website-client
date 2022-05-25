@@ -44,8 +44,8 @@ function Orders() {
                 <h2 className='text-xl font-semibold text-primary'> My Orders </h2>
                 <label for="" className='btn btn-active btn-link gap-2 text-xl'>  <BsCartFill /> </label>
             </div>
-            <div class="overflow-x-auto w-full">
-                <table class="table w-full">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>
@@ -72,31 +72,31 @@ function Orders() {
                              </label>
                            </th>
                            <td>
-                             <div class="flex items-center space-x-3">
-                                 <div class="avatar">
-                                     <div class="mask mask-squircle w-12 h-12">
+                             <div className="flex items-center space-x-3">
+                                 <div className="avatar">
+                                     <div className="mask mask-squircle w-12 h-12">
                                          <img src={imgURL} className='rounderBorder' alt={productName} />
                                      </div>
                                  </div>
                                  <div>
-                                     <div class="font-bold">{productName}</div>
-                                     <div class="text-md opacity-50">Per Price : {perPrice}</div>
+                                     <div className="font-bold">{productName}</div>
+                                     <div className="text-md opacity-50">Per Price : {perPrice}</div>
                                  </div>
                              </div>
                             </td>
                             <td>
                             {email}
                             <br/>
-                               {order?.paid &&   <span class="badge badge-primary badge-sm">{order?.transactionId}</span>}
-                               {!order?.paid &&   <span class="badge badge-primary badge-sm">Not Paid yet</span>}
+                               {order?.paid &&   <span className="badge badge-primary badge-sm">{order?.transactionId}</span>}
+                               {!order?.paid &&   <span className="badge badge-primary badge-sm">Not Paid yet</span>}
                             </td>
                              <td> {quantity}</td>
                             <td>${parseInt(quantity) * parseInt(perPrice)}</td>
                           <th>
-                                {!order?.paid &&  <Link to={`payment/${_id}`} class="btn btn-primary btn-xs" >Pay</Link>}
+                                {!order?.paid &&  <Link to={`payment/${_id}`} className="btn btn-primary btn-xs" >Pay</Link>}
                                 {order?.paid && <button className='btn btn-xs btn-disabled'>Paid</button>}
                            </th>
-                           <th>  {!order?.paid &&  <label for='delete-order' onClick={() => handleSetOrderInfo(order)} class={`btn btn-danger btn-xs ${loading && "btn-disabled"}`}>Cancel</label>}</th>
+                           <th>  {!order?.paid &&  <label for='delete-order' onClick={() => handleSetOrderInfo(order)} className={`btn btn-danger btn-xs ${loading && "btn-disabled"}`}>Cancel</label>}</th>
                          </tr>
                                 )
                             })
@@ -105,14 +105,14 @@ function Orders() {
                         {
                             orderDelete && (
                                 <> 
-                                <input type="checkbox" id="delete-order" class="modal-toggle" />
-                                <div class="modal">
-                                    <div class="modal-box">
-                                        <h3 class="font-bold text-lg">Do you want to Cancel this Order?</h3>
-                                        <p class="py-4">{orderDelete?.productName} will be Delete from Database! if you click Yes</p>
-                                        <div class="modal-action">
+                                <input type="checkbox" id="delete-order" className="modal-toggle" />
+                                <div className="modal">
+                                    <div className="modal-box">
+                                        <h3 className="font-bold text-lg">Do you want to Cancel this Order?</h3>
+                                        <p className="py-4">{orderDelete?.productName} will be Delete from Database! if you click Yes</p>
+                                        <div className="modal-action">
                                         <button className='btn btn-primary' onClick={() => handleDelete(orderDelete?._id)}>YES </button>
-                                         <label for="delete-order " onClick={() => setOrderDelete(null)} class="btn">Cancel</label>
+                                         <label for="delete-order " onClick={() => setOrderDelete(null)} className="btn">Cancel</label>
                                         </div>
                                     </div>
                                 </div>

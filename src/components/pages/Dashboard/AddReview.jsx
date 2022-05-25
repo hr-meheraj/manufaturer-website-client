@@ -98,38 +98,38 @@ function AddReview() {
               {
                     (isOpen) && (
                         <form className='mt-[15px] p-[20px]' onSubmit={handleSubmit(onSubmit)}>
-                         <div class="form-control">
-                            <label class="label">
-                                <span class="label-text"> Name</span>
+                         <div className="form-control">
+                            <label className="label">
+                                <span className="label-text"> Name</span>
                             </label>
                             <input defaultValue={user?.displayName} type="text" {...register("name", {
                                 required: {
                                     value : true,
                                     message : ' name is Required'
                                 }
-                            })} placeholder="Enter Name" class="input input-bordered" />
+                            })} placeholder="Enter Name" className="input input-bordered" />
                             <label className="label">
                                 {errors?.name && <span className="label-text-alt text-red-500">{errors.name?.message}</span>}
                             </label>
 
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text"> Email</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text"> Email</span>
                             </label>
                             <input defaultValue={user?.email} type="text" {...register("email", {
                                 required: {
                                     value : true,
                                     message : 'Email name is Required'
                                 }
-                            })}  class="input input-bordered" />
+                            })}  className="input input-bordered" />
                             <label className="label">
                                 {errors?.email && <span className="label-text-alt text-red-500">{errors.email?.message}</span>}
                             </label>
                         </div>
-                            <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Ratings</span>
+                            <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Ratings</span>
                             </label>
                             <input type="number" {...register("ratings",{
                                 required: {
@@ -144,14 +144,14 @@ function AddReview() {
                                     value : 5,
                                     message : 'Maximum 5'
                                 }
-                            })} placeholder="Minimun order Quantity" class="input input-bordered" />
+                            })} placeholder="Minimun order Quantity" className="input input-bordered" />
                             <label className="label">
                                 {errors?.minQuantity && <span className="label-text-alt text-red-500">{errors.minQuantity?.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Short Description</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Short Description</span>
                             </label>
                             <textarea {...register("review", {
                                 required: {
@@ -166,13 +166,13 @@ function AddReview() {
                                     value : 150,
                                     message : 'Maximun Length is 150 Character'
                                 }
-                            })} placeholder="short Review..." class="input input-bordered" />
+                            })} placeholder="short Review..." className="input input-bordered" />
                             <label className="label">
                                 {errors?.review && <span className="label-text-alt text-red-500">{errors.review?.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control mt-6">
-                             <button class={`btn btn-primary`} type="submit">{review?.ratings ? "Update" : "Add Review"}</button> 
+                        <div className="form-control mt-6">
+                             <button className={`btn btn-primary`} type="submit">{review?.ratings ? "Update" : "Add Review"}</button> 
                         </div>
                         </form>
                     )

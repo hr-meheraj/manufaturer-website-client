@@ -42,8 +42,8 @@ const  ManageUsers = () =>  {
             <h2 className='text-2xl font-semibold text-primary'>WELCOME TO DASHBOARD! </h2>
             <p className='text-xl font-semibold my-4'>Manage Users </p>
             <div>
-                <div class="overflow-x-auto w-full">
-                    <table class="table w-full">
+                <div "overflow-x-auto w-full">
+                    <table "table w-full">
 
                         <thead>
                             <tr>
@@ -70,26 +70,26 @@ const  ManageUsers = () =>  {
                                                 </label>
                                             </th>
                                             <td>
-                                                <div class="flex items-center space-x-3">
-                                                    <div class="avatar">
-                                                        <div class="mask mask-squircle w-12 h-12">
+                                                <div "flex items-center space-x-3">
+                                                    <div "avatar">
+                                                        <div "mask mask-squircle w-12 h-12">
                                                             <img src={user?.imgURL || 'https://www.svgrepo.com/show/5125/avatar.svg'} alt={user?.name} />
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        <div class="font-bold">{user?.name}</div>
-                                                        <div class="text-sm opacity-50">{user?.country || 'Not updated'}</div>
+                                                        <div "font-bold">{user?.name}</div>
+                                                        <div "text-sm opacity-50">{user?.country || 'Not updated'}</div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
                                                 {user?.email}
                                                 <br />
-                                                <span class="badge badge-ghost badge-sm">{user?.city || 'Not Updated'}</span>
+                                                <span "badge badge-ghost badge-sm">{user?.city || 'Not Updated'}</span>
                                             </td>
-                                            <td>{user?.role ? <button class="btn btn-sm btn-disabled" tabindex="-1" role="button" aria-disabled="true"> Admin</button> : <label for="admin-modal" onClick={() => setAdminInfo(user)} class="btn btn-sm modal-button">Make as Admin</label>}</td>
+                                            <td>{user?.role ? <button "btn btn-sm btn-disabled" tabindex="-1" role="button" aria-disabled="true"> Admin</button> : <label for="admin-modal" onClick={() => setAdminInfo(user)} "btn btn-sm modal-button">Make as Admin</label>}</td>
                                             <th>
-                                                <label for='delete-user' onClick={() => setAdminInfo(user)} class="btn modal-button btn-error btn-sm">Delete</label>
+                                                <label for='delete-user' onClick={() => setAdminInfo(user)} "btn modal-button btn-error btn-sm">Delete</label>
                                             </th>
                                         </tr>
                                     )
@@ -106,14 +106,14 @@ const  ManageUsers = () =>  {
             {
                 adminInfo && (
                     <> 
-                    <input type="checkbox" id="admin-modal" class="modal-toggle" />
-                    <div class="modal">
-                        <div class="modal-box">
-                            <h3 class="font-bold text-lg">Do you want to  the user Admin?</h3>
-                            <p class="py-4">{adminInfo?.email} will be admin! if you click Yes</p>
-                            <div class="modal-action">
+                    <input type="checkbox" id="admin-modal" "modal-toggle" />
+                    <div "modal">
+                        <div "modal-box">
+                            <h3 "font-bold text-lg">Do you want to  the user Admin?</h3>
+                            <p "py-4">{adminInfo?.email} will be admin! if you click Yes</p>
+                            <div "modal-action">
                             <button className='btn btn-primary' onClick={() => handleAdmin(adminInfo?.email)}>YES </button>
-                                <label for="admin-modal" class="btn">Cancel</label>
+                                <label for="admin-modal" "btn">Cancel</label>
                             </div>
                         </div>
                     </div>
@@ -124,14 +124,14 @@ const  ManageUsers = () =>  {
             {
                 adminInfo && (
                     <> 
-                    <input type="checkbox" id="delete-user" class="modal-toggle" />
-                    <div class="modal">
-                        <div class="modal-box">
-                            <h3 class="font-bold text-lg">Do you want Delete the user?</h3>
-                            <p class="py-4">{adminInfo?.email} will be Delete from Database! if you click Yes</p>
-                            <div class="modal-action">
+                    <input type="checkbox" id="delete-user" "modal-toggle" />
+                    <div "modal">
+                        <div "modal-box">
+                            <h3 "font-bold text-lg">Do you want Delete the user?</h3>
+                            <p "py-4">{adminInfo?.email} will be Delete from Database! if you click Yes</p>
+                            <div "modal-action">
                             <button className='btn btn-primary' onClick={() => handleDelete(adminInfo?.email)}>YES </button>
-                             <label for="delete-user" class="btn">Cancel</label>
+                             <label for="delete-user" "btn">Cancel</label>
                             </div>
                         </div>
                     </div>

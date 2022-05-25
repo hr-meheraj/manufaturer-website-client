@@ -36,51 +36,51 @@ function ProfileUpdateModal({ userInfo, setUserInfo, refetch }) {
          (loading || authUpdating) && <Loading/> 
      }
         <div>
-            <input type="checkbox" id="userInfoModal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle mx-auto">
-                <div class="modal-box">
-                    <label for="userInfoModal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <div class="modal-box mx-auto">
-                        <h3 class="font-bold text-lg">Update Profile</h3>
+            <input type="checkbox" id="userInfoModal" "modal-toggle" />
+            <div "modal modal-bottom sm:modal-middle mx-auto">
+                <div "modal-box">
+                    <label for="userInfoModal" "btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <div "modal-box mx-auto">
+                        <h3 "font-bold text-lg">Update Profile</h3>
                         <form onSubmit={handleSubmit(onSubmit)} className='py-2'>
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text-alt">Full Name : </span>
+                            <div "form-control w-full max-w-xs">
+                                <label "label">
+                                    <span "label-text-alt">Full Name : </span>
                                 </label>
-                                <input defaultValue={userInfo?.displayName || " "} type="text" {...register("name")} class="input input-bordered w-full max-w-xs" />
+                                <input defaultValue={userInfo?.displayName || " "} type="text" {...register("name")} "input input-bordered w-full max-w-xs" />
                               
                             </div>
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text-alt">Email: </span>
+                            <div "form-control w-full max-w-xs">
+                                <label "label">
+                                    <span "label-text-alt">Email: </span>
                                 </label>
-                                <input type="email" defaultValue={userInfo?.email} {...register("email")} disabled class="input input-bordered w-full max-w-xs" />
+                                <input type="email" defaultValue={userInfo?.email} {...register("email")} disabled "input input-bordered w-full max-w-xs" />
                                 
                             </div>
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text-alt">Phone: </span>
+                            <div "form-control w-full max-w-xs">
+                                <label "label">
+                                    <span "label-text-alt">Phone: </span>
                                 </label>
-                                <input type="phone" {...register("phone")} class="input input-bordered w-full max-w-xs" />
+                                <input type="phone" {...register("phone")} "input input-bordered w-full max-w-xs" />
                             </div>
-                            <div class="form-control w-full max-w-xs mb-[15px]">
+                            <div "form-control w-full max-w-xs mb-[15px]">
                                
-                            <select class="select select-bordered w-full block max-w-xs" {...register("country")}>
+                            <select "select select-bordered w-full block max-w-xs" {...register("country")}>
                                 <option disabled selected>Country?</option>
                                 {
                                     countries?.map((country, i) => <option key={i}>{country.name}</option>)
                                 }
                             </select>
                             </div>
-                            <div class="form-control w-full max-w-xs mb-[15px]">
-                            <input type="text"  {...register("city")} placeholder='City' class="input input-bordered w-full max-w-xs" />
+                            <div "form-control w-full max-w-xs mb-[15px]">
+                            <input type="text"  {...register("city")} placeholder='City' "input input-bordered w-full max-w-xs" />
                             </div>
 
-                            <div class="form-control w-full max-w-xs mt-[5px]">
-                                <label class="label">
-                                    <span class="label-text-alt">Present Address: </span>
+                            <div "form-control w-full max-w-xs mt-[5px]">
+                                <label "label">
+                                    <span "label-text-alt">Present Address: </span>
                                 </label>
-                                <textarea class="textarea " {...register("address")} placeholder="Present Address..."></textarea>
+                                <textarea "textarea " {...register("address")} placeholder="Present Address..."></textarea>
                             </div>
                             <button className={`w-full btn btn-primary mt-[15px] block`} disabled={updating}>{updating ? "Updating" : "Update"}</button>
                         </form>

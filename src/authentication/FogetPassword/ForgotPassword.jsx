@@ -21,19 +21,19 @@ function ForgotPassword() {
             {
                 sending && <Loading/>
             }
-         <div class="card max-w-[600px] w-[95%]  md:p-[20px] p-[5%] shadow-2xl bg-base-100">
-            <form class="card-body" onSubmit={handleSubmit(onSubmit)}>
-            <h2 class="card-title">Reset You password : </h2>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Email</span>
+         <div className="card max-w-[600px] w-[95%]  md:p-[20px] p-[5%] shadow-2xl bg-base-100">
+            <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+            <h2 className="card-title">Reset You password : </h2>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Email</span>
                     </label>
                     <input type="text" {...register("email", {
                         required: "Email is required to Reset Password",
-                    })} placeholder="email" class="input input-bordered" />
+                    })} placeholder="email" className="input input-bordered" />
                     {errors?.email && <span className='text-red-700 my-[5px]'>{errors?.email}</span> }
-                      <div class="form-control mt-6">
-                      <button type='submit' class="btn btn-primary">Send Reset Link</button>
+                      <div className="form-control mt-6">
+                      <button type='submit' className="btn btn-primary">Send Reset Link</button>
                   </div>
                 </div>
            </form>

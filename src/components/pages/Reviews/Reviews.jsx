@@ -71,12 +71,12 @@ function Reviews() {
                 }
             </div>
             <div className='text-center mb-[50px]'>
-                <div class="btn-group" >
+                <div className="btn-group" >
                   {
                       count && 
                       [...Array(count).keys()].map((each,index) => {
                           return(
-                            <button class={`btn btn-md ${(each === page) && 'btn-active'}`} key={index}>{each + 1}</button>
+                            <button className={`btn btn-md ${(each === page) && 'btn-active'}`} key={index}>{each + 1}</button>
                           )
                       })
                   }

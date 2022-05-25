@@ -31,11 +31,11 @@ function Blogs() {
                       blogs.map( blog => {
                           const { title, body, imgURL, _id} = blog;
                           return(
-                            <div key={_id} onClick={() => navigate(`${_id}`)}  class="mb-[20px] cursor-pointer w-full max-w-full md:min-w-[720px] flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 border-gray-700 bg-gray-800 hover:bg-gray-700">
-                            <img class="object-cover w-full h-[240px] rounded-t-lg md:h-[252px] md:w-[324px] md:rounded-none md:rounded-l-lg" src={imgURL}  alt={title}/>
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title.slice(0,60)}...</h5>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{body.slice(0,64)}...</p>
+                            <div key={_id} onClick={() => navigate(`${_id}`)}  className="mb-[20px] cursor-pointer w-full max-w-full md:min-w-[720px] flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 border-gray-700 bg-gray-800 hover:bg-gray-700">
+                            <img className="object-cover w-full h-[240px] rounded-t-lg md:h-[252px] md:w-[324px] md:rounded-none md:rounded-l-lg" src={imgURL}  alt={title}/>
+                            <div className="flex flex-col justify-between p-4 leading-normal">
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title.slice(0,60)}...</h5>
+                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{body.slice(0,64)}...</p>
                             </div>
                             </div>
                           )
