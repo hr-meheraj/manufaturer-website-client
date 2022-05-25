@@ -124,8 +124,8 @@ function AddProducts() {
                                     message : 'Quantity is Required'
                                 },
                                 min : {
-                                    value : 100,
-                                    message : 'Minimun product should be 100+'
+                                    value : 1,
+                                    message : 'Minimun product should be 1+'
                                 }
                             })} placeholder="Quantity" className="input input-bordered" />
                             <label className="label">

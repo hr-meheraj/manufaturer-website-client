@@ -54,43 +54,43 @@ function DynamicPurchasePage() {
            
             <div className='grid grid-cols-1 md:grid-cols-2 gap-[20px] lg:gap-[40px]' >
                 <PurchaseCard product={product}/>
-                <form onSubmit={handleSubmit(onSubmit)} "card w-full  shadow-2xl bg-base-100">
-                    <div "card-body">
-                    <div "form-control">
-                         <label "label">
-                                <span "label-text"> Name</span>
+                <form onSubmit={handleSubmit(onSubmit)} className="card w-full  shadow-2xl bg-base-100">
+                    <div className="card-body">
+                    <div className="form-control">
+                         <label className="label">
+                                <span className="label-text"> Name</span>
                             </label>
                             <input defaultValue={user?.displayName} type="text" {...register("name", {
                                 required: {
                                     value : true,
                                     message : ' Name is Required'
                                 }
-                            })} placeholder="Enter Name" "input input-bordered" />
+                            })} placeholder="Enter Name" className="input input-bordered" />
                             <label className="label">
                                 {errors?.name && <span className="label-text-alt text-red-500">{errors.name?.message}</span>}
                             </label>
 
                         </div>
-                        <div "form-control">
-                            <label "label">
-                                <span "label-text"> Email</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text"> Email</span>
                             </label>
                             <input defaultValue={user?.email} type="text" {...register("email", {
                                 required: {
                                     value : true,
                                     message : ' Email is Required'
                                 }
-                            })} placeholder="Enter Email Address" "input input-bordered" />
+                            })} placeholder="Enter Email Address" className="input input-bordered" />
                             <label className="label">
                                 {errors?.email && <span className="label-text-alt text-red-500">{errors.email?.message}</span>}
                             </label>
 
                         </div>
-                        <div "form-control w-full block mt-[5px]">
-                                <label "label">
-                                    <span "label-text-alt">Present Address: </span>
+                        <div className="form-control w-full block mt-[5px]">
+                                <label className="label">
+                                    <span className="label-text-alt">Present Address: </span>
                                 </label>
-                                <textarea "textarea w-full block textarea-success" {...register("address",{
+                                <textarea className="textarea w-full block textarea-success" {...register("address",{
                                     required : {
                                         value : true,
                                         message : 'Address is Required to Reach out your products'
@@ -100,9 +100,9 @@ function DynamicPurchasePage() {
                                 {errors?.address && <span className="label-text-alt text-red-500">{errors.address?.message}</span>}
                             </label>
                        </div>
-                       <div "form-control">
-                            <label "label">
-                                <span "label-text">Quantity</span>
+                       <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Quantity</span>
                             </label>
                             <input type="number" defaultValue={product?.minQuantity} {...register("quantity",{
                                 required: {
@@ -117,13 +117,13 @@ function DynamicPurchasePage() {
                                     value : product.quantity,
                                     message : `Maximun product quantity should be ${product?.quantity}`
                                 }
-                            })} placeholder="Quantity" "input input-bordered" />
+                            })} placeholder="Quantity" className="input input-bordered" />
                             <label className="label">
                                 {errors?.quantity && <span className="label-text-alt text-red-500">{errors.quantity?.message}</span>}
                             </label>
                         </div>
-                        <div "form-control mt-6">
-                        <button {`btn btn-primary ${purchasing && 'btn-disabled'}`} type='submit'>Purchase</button>
+                        <div className="form-control mt-6">
+                        <button className={`btn btn-primary ${purchasing && 'btn-disabled'}`} type='submit'>Purchase</button>
                      </div>
                  </div>
             </form>

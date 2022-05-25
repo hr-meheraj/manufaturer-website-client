@@ -8,18 +8,18 @@ function DashboardDrawer({ children }) {
     const [user, userLoading] = useAuthState(auth);
     const [admin, adminLoading] = useAdmin(user);
     return (
-        <div "drawer drawer-mobile">
+        <div className="drawer drawer-mobile">
             {
                 (adminLoading || userLoading) && <Loading />
             }
-            <input id="dashboard-drawer" type="checkbox" "drawer-toggle" />
-            <div "drawer-content">
+            <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content">
                 {children}
 
             </div>
-            <div "drawer-side">
-                <label for="dashboard-drawer" "drawer-overlay"></label>
-                <ul "menu p-4 overflow-y-auto w-[250px] bg-[#f4f6f9]  mt-[2px] text-base-content">
+            <div className="drawer-side">
+                <label for="dashboard-drawer" className="drawer-overlay"></label>
+                <ul className="menu p-4 overflow-y-auto w-[250px] bg-[#f4f6f9]  mt-[2px] text-base-content">
 
                    {
                        !admin && (

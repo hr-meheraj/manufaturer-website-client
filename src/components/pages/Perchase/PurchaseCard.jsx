@@ -4,10 +4,10 @@ function PurchaseCard({product}) {
     const { id } = useParams();
     const { _id, name, quantity, minQuantity, description, perPrice, imgURL } = product;
     return (
-        <div "card card-compact bg-base-100 shadow-xl">
+        <div className="card card-compact bg-base-100 shadow-xl">
         <figure><img src={imgURL} className='product' alt={name}/></figure>
-        <div "card-body">
-          <h2 "card-title">{name}</h2>
+        <div className="card-body">
+          <h2 className="card-title">{name}</h2>
           <p>{description}</p>
           <div className='flex justify-between  py-2'>
               <span className=' '> Minimun Quantity : {minQuantity} </span>
@@ -17,8 +17,8 @@ function PurchaseCard({product}) {
             <h2 className='text-2xl font-bold '> Price: </h2> 
             <h2 className='text-3xl font-bold '> ${perPrice} </h2> 
         </div>
-          <div "card-actions justify-end">
-           { (!id) &&  <Link to={`/purchase/${_id}`} "btn btn-primary">Buy Now</Link>}
+          <div className="card-actions justify-end">
+           { (!id) &&  <Link to={`/purchase/${_id}`} className="btn btn-primary">Buy Now</Link>}
           </div>
         </div>
       </div>

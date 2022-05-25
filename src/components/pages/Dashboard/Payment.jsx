@@ -28,20 +28,20 @@ function Payment() {
                 <label for="" className='btn btn-active btn-link gap-2 text-xl'>  <MdPayment /> </label>
             </div>
             <div className='grid gap-[20px] grid-cols-1 md:grid-cols-2'>
-                <div "card bg-base-100 shadow-xl">
+                <div class="card bg-base-100 shadow-xl">
                     <figure><img src={paymentProduct?.imgURL} alt={paymentProduct?.productName} /> </figure>
-                    <div "card-body">
-                        <h2 "card-title">
+                    <div class="card-body">
+                        <h2 class="card-title">
                             {paymentProduct?.productName}
-                            <div "badge badge-primary badge-xs">Pay</div>
+                            <div class="badge badge-primary badge-xs">Pay</div>
                         </h2>
                         <p>{paymentProduct?.description}</p>
 
-                        <div "card-actions flex flex-col gap-[10px]">
-                            <div "">
+                        <div class="card-actions flex flex-col gap-[10px]">
+                            <div class="">
                                 Quantity : <span> {paymentProduct?.quantity}</span>
                             </div>
-                            <div "">
+                            <div class="">
                                 Per Price : <span> ${paymentProduct?.perPrice} </span>
                             </div>
                             <div>
@@ -51,9 +51,9 @@ function Payment() {
                         </div>
                     </div>
                 </div>
-                <div "card card-compact w-96 bg-base-100 shadow-xl">
-                    <div "card-body">
-                        <h2 "card-title">Payment with Stripe!</h2>
+                <div class="card card-compact w-96 bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title">Payment with Stripe!</h2>
                          <Elements stripe={stripePromise}>
                             <CheckoutForm productInfo={paymentProduct} />
                          </Elements>

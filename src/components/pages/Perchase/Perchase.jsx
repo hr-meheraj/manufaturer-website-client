@@ -56,12 +56,12 @@ function Perchase() {
                 </div>
 
             <div className='text-center mb-[50px]'>
-                <div "btn-group" >
+                <div className="btn-group" >
                   {
                       count && 
                       [...Array(count).keys()].map((each,index) => {
                           return(
-                            <button {`btn btn-md ${(each === page) && 'btn-active'}`} key={index}>{each + 1}</button>
+                            <button className={`btn btn-md ${(each === page) && 'btn-active'}`} key={index}>{each + 1}</button>
                           )
                       })
                   }
