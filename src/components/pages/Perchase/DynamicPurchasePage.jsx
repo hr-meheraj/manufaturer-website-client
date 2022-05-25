@@ -35,7 +35,8 @@ function DynamicPurchasePage() {
             productName : product.name,
             perPrice : product.perPrice,
             quantity : data.quantity,
-            productId : product._id
+            productId : product._id,
+            imgURL : product.imgURL
         };
         const resPost = await privateAxios.post(`https://manufacturer-server.hrmeheraj.repl.co/perchase`, postBody);
         setPurchasing(false);
