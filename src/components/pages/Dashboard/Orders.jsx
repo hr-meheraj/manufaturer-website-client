@@ -42,7 +42,7 @@ function Orders() {
         <div className='max-w-[820px] mx-auto w-[95%] p-4 mt-[20px]'>
             <div className='flex justify-around items-center py-2 shadow-md mb-[30px]'>
                 <h2 className='text-xl font-semibold text-primary'> My Orders </h2>
-                <label for="userInfoModal" className='btn btn-active btn-link gap-2'>  <BsCartFill /> </label>
+                <label for="" className='btn btn-active btn-link gap-2 text-xl'>  <BsCartFill /> </label>
             </div>
             <div class="overflow-x-auto w-full">
                 <table class="table w-full">
@@ -63,7 +63,7 @@ function Orders() {
                     <tbody>
                         {
                             orders?.map( (order, index) => {
-                                const { imgURL, productName, name, email,perPrice, quantity } = order;
+                                const { _id, imgURL, productName, name, email,perPrice, quantity } = order;
                                 return(
                                      <tr>
                             <th>

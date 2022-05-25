@@ -22,6 +22,7 @@ import AddProducts from "./components/pages/Dashboard/AddProducts";
 import ManageProducts from "./components/pages/Dashboard/ManageProducts";
 import Reviews from "./components/pages/Reviews/Reviews";
 import DynamicPurchasePage from "./components/pages/Perchase/DynamicPurchasePage";
+import Payment from "./components/pages/Dashboard/Payment";
 function App() {
   return (
     <Navbar>
@@ -32,6 +33,7 @@ function App() {
             <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>} >
                 <Route index element={<IndexDashboard/>}/>
                 <Route path='orders' element={ <Orders/>}/>
+                <Route path='orders/payment/:id' element={ <Payment/>}/>
                 <Route path='review' element={ <AddReview/>}/>
                 <Route path='profile' element={ <Profile/>}/>
                 <Route path='manage-users' element={ <RequireAdmin><ManageUsers/></RequireAdmin>}/>
