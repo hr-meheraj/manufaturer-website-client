@@ -87,7 +87,7 @@ function Orders() {
                             <td>
                             {email}
                             <br/>
-                               {order?.paid &&   <span class="badge badge-primary badge-sm">{order?.transictionId}</span>}
+                               {order?.paid &&   <span class="badge badge-primary badge-sm">{order?.transactionId}</span>}
                                {!order?.paid &&   <span class="badge badge-primary badge-sm">Not Paid yet</span>}
                             </td>
                              <td> {quantity}</td>

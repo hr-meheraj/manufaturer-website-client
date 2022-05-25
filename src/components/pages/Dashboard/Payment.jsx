@@ -2,8 +2,14 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { MdPayment } from 'react-icons/md'
 import { useQuery } from 'react-query'
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import Loading from '../../Shared/Loading/Loading';
 import privateAxios from '../../../api/privateAxios';
+import CheckoutForm from './CheckoutForm';
+
+const stripePromise = loadStripe('pk_test_51L3D18LiBwdXb9tUmHWMLO3Z5tG5eqsFKGmBByJL0UhFxlMJ8ezKKUeo42Inkh2CQdjHHC9ROwZk5zkOWx9tuOT300amNRMLD2');
+
 function Payment() {
     const { id } = useParams();
     const getPaymentProduct = async () => {
@@ -36,24 +42,24 @@ function Payment() {
                                 Quantity : <span> {paymentProduct?.quantity}</span>
                             </div>
                             <div class="">
-                                Per Price : <span> {paymentProduct?.perPrice} </span>
+                                Per Price : <span> ${paymentProduct?.perPrice} </span>
                             </div>
                             <div>
                                 <h3 className='text-center text-xl'>Total Pay :  </h3>
-                                <h2 className='text-4xl font-bold text-center my-[15px]'> {paymentProduct?.quantity * paymentProduct?.perPrice} </h2>
+                                <h2 className='text-4xl font-bold text-center my-[15px]'> ${paymentProduct?.quantity * paymentProduct?.perPrice} </h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card  bg-base-100 shadow-xl">
+                <div class="card card-compact w-96 bg-base-100 shadow-xl">
                     <div class="card-body">
-                        <h2 class="card-title">Stripe Checkout Here!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
+                        <h2 class="card-title">Payment with Stripe!</h2>
+                         <Elements stripe={stripePromise}>
+                            <CheckoutForm productInfo={paymentProduct} />
+                         </Elements>
                     </div>
                 </div>
+            
             </div>
         </div>
     )
