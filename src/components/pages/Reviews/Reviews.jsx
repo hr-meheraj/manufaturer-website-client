@@ -41,12 +41,12 @@ function Reviews() {
                 <p className='my-[15px] text-gray-500 text-center'> Explore some review and trust us. </p>
                 </div>
             </div>
-           <div className='max-w-[820px] mx-auto w-[95%]'>
+           <div className='max-x-[1180px] w-[95%]  mx-auto'>
            <div>
                 <h3 className='text-gray-500 font-semibold'> Total Reveiw Found : {reviews?.length} </h3>
                 <hr />
             </div>
-            <div className='grid grid-cols-1  md:grid-cols-2 gap-[20px] p-4 mb-[20px]'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-[40px] gap-[20px] md:gap-[40px]'>
                 {
                     reviews?.map(review => {
                         return (
@@ -57,7 +57,7 @@ function Reviews() {
                                 <div className=''>
                                     <h2 className='text-2xl mb-4 text-center'> {review.name}</h2>
                                     <p className='px-3'>{review.review} </p>
-                                    <div className='my-4 text-xl flex gap-[8px] text-yellow-800 justify-center'>
+                                    <div className='my-4 text-xl flex gap-[8px] text-yellow justify-center'>
                                         {
                                             [...Array(parseInt(review?.ratings)).keys()]?.map((rating, index) => {
                                                 return <span key={index}> <AiFillStar /></span>
@@ -81,9 +81,10 @@ function Reviews() {
                       })
                   }
                    <select onChange={(e) => setSize(e.target.value)}> 
-                     <option default value="6">6</option>
-                     <option value="10">10</option>
+                     <option default value="10">10</option>
                      <option value="15">15</option>
+                     <option value="20">20</option>
+                     <option value={itmesFound}>All</option>
                    </select>
                 </div>
             </div>

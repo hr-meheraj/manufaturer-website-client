@@ -77,13 +77,13 @@ function AddReview() {
              <div className=' w-full flex justify-center items-center '>
                 {review && (
                     <div className='p-4 rounded-md shadow-md mt-[20px]'>
-                        <div className='my-[10px] flex justify-center items-center'>
+                        <div className='my-[10px] max-w-[95%] w-[320px] flex justify-center items-center'>
                             <img src={review.imgURL || 'https://cdn.lorem.space/images/face/.cache/500x0/stefan-stefancik-QXevDflbl8A-unsplash.jpg'} className='w-[140px] h-[140px] avatar rounded-full' alt={review.name} />
                          </div>
                          <div className=''>
                             <h2 className='text-2xl mb-4 text-center'> {review.name}</h2> 
-                            <p className='px-3'>{review.review} </p>
-                            <div className='my-4 text-xl flex gap-[8px] text-yellow-800 justify-center'>
+                            <p className='px-3 text-center'>{review.review} </p>
+                            <div className='my-4 text-xl flex gap-[8px] text-yellow justify-center'>
                                 { 
                                 [...Array(parseInt(review?.ratings)).keys()].map( (rating, index) => {
                                     return <span key={index}> <AiFillStar/></span> 

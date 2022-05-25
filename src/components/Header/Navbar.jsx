@@ -24,12 +24,11 @@ function Navbar({ children }) {
                     <div class="flex-1 px-2 mx-2"><Link to='/' className='text-xl font-semibold text-purple-900 cursor-pointer'>Shop Tools</Link></div>
                     <div class="flex-none hidden lg:block">
                         <ul class="menu menu-horizontal gap-[15px]">
-                            <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/purchase">Purchase</NavLink></li>
                             <li><NavLink to="/blogs">Blogs</NavLink></li>
                             <li><NavLink to="/about-me">My Portfolio</NavLink></li>
                             <li><NavLink to="/reviews">Reviews</NavLink></li>
-                            <li><NavLink to="/contact">Contact</NavLink></li>
+                            {/* <li><NavLink to="/contact">Contact</NavLink></li> */}
                             {
                                 user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                             }
@@ -60,7 +59,7 @@ function Navbar({ children }) {
                     <li><NavLink to="/blogs">Blogs</NavLink></li>
                     <li><NavLink to="/reviews">Reviews</NavLink></li>
                     <li><NavLink to="/about-me">My Portfolio</NavLink></li>
-                    <li><NavLink to="/contact">Contact</NavLink></li>
+                    {/* <li><NavLink to="/contact">Contact</NavLink></li> */}
     
                     {
                         user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>

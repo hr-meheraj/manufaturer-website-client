@@ -16,6 +16,10 @@ module.exports = {
                     "neutral": "#3D4451",
 
                     "base-100": "#FFFFFF",
+                    "yellow" : "#f9a10a",
+                    "gray" : "#3d4451",
+
+                    "darkBanner" : "#0a131b",
 
                     "info": "#3ABFF8",
 

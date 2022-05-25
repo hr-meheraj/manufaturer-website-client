@@ -10,7 +10,7 @@ import ForgotPassword from "./authentication/FogetPassword/ForgotPassword";
 import RequireAuth from "./authentication/RequireAuth/RequireAuth";
 import Dashboard from "./components/pages/Dashboard/Dashboard";
 import NotFound from "./components/Shared/NotFound/NotFound";
-import Contact from "./components/pages/Contact/Contact";
+// import Contact from "./components/pages/Contact/Contact";
 import Orders from "./components/pages/Dashboard/Orders";
 import AddReview from "./components/pages/Dashboard/AddReview";
 import Profile from "./components/pages/Dashboard/Profile";
@@ -45,7 +45,6 @@ function App() {
             <Route path='/reviews' element={<Reviews/>} />
             <Route path='/blogs' element={<Blogs/>} />
             <Route path='/blogs/:id' element={<Blog/>}/>
-            <Route path='/contact' element={<Contact/>} />
             <Route path='/about-me' element={<MyPortfolio/>} />
             <Route path='*' element={<NotFound/>}/>
             <Route path='reset-password' element={<ForgotPassword/>}/>

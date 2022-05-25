@@ -5,12 +5,14 @@ import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
 import CallToAction from './CallToAction';
 import Review from './Review'
+import Tools from './Tools';
 
 function Home() {
 
     return (
-        <div className='max-x-[1180px] max-w-[95%]  mx-auto'>        
+        <div className='max-x-[1180px] w-[95%]  mx-auto'>        
             <Banner/>
+            <Tools/>
             <Review/>
             <BusinessSummary/>
             <CallToAction/>

@@ -8,8 +8,8 @@ function Perchase() {
     const [itmesFound, setItemsFound] = useState(0);
     const [count, setCount] = useState(0);
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(6);
-    const getReviews = async () => {
+    const [size, setSize] = useState(10);
+    const getProducts = async () => {
         const { data } = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/products?size=${size}&page=${page}`);
         return data;
     }
@@ -29,7 +29,7 @@ function Perchase() {
         getPage();
     },[size])
 
-    const { data: products , isLoading, refetch } = useQuery(['products', size, page], () => getReviews());
+    const { data: products , isLoading, refetch } = useQuery(['products', size, page], () => getProducts());
     return (
         <div>
             {
@@ -41,7 +41,7 @@ function Perchase() {
                     <p className='px-4 py-2'>Explore All Tools and Book now easily. </p>
                 </div>
              </div>
-            <div className='max-w-[1000px] mx-auto w-[95%]'>
+            <div className='max-x-[1180px] w-[95%]  mx-auto'>
             <div>
                  <h3 className='text-xl font-semibold text-center'>Total Tools Found : {products?.length}</h3>
                  <br/>
@@ -49,7 +49,7 @@ function Perchase() {
                  <br/>
             </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px] p-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-[40px] gap-[20px] md:gap-[40px]'>
                 {
                     products?.map(product => <PurchaseCard key={product._id} product={product}/>)
                 }
@@ -66,9 +66,10 @@ function Perchase() {
                       })
                   }
                    <select onChange={(e) => setSize(e.target.value)}> 
-                     <option default value="6">6</option>
-                     <option value="10">10</option>
-                     <option value="15">15</option>
+                     <option default value="10">10</option>
+                     <option value="20">15</option>
+                     <option value="20">20</option>
+                     <option value={itmesFound}>All</option>
                    </select>
                 </div>
             </div>
