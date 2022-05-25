@@ -28,8 +28,8 @@ function Profile() {
                 <label for="userInfoModal" onClick={() => setUserInfo(authUser)} className='btn btn-active btn-link gap-2'> Edit <BiEdit/> </label>
             </div>
             <hr />
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-[20px] mt-[40px]'>
-               <div className='flex jusitfy-center items-center md:justify-start'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-[20px] mt-[40px] profile'>
+               <div className='flex justify-center items-center '>
                  <div class="avatar online">
                     <div class="w-[160px] rounded-full">
                         <img src="https://api.lorem.space/image/face?hash=28212" />
@@ -48,8 +48,8 @@ function Profile() {
                 </div> 
             </div>
             <div className='my-[40px]'> 
-                <h2 className='text-2xl text-center text-primary mb-6'>Location </h2> 
-                <div className='grid grid-cols-1 gap-[20px] md:grid-cols-2'> 
+                <h2 className='text-2xl text-center  mb-6 location bg-[#e7e7e9] px-4 py-6 rounded-md'>Location </h2> 
+                <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[20px]'> 
                     <div> 
                    <h4 className="font-semibold"> Country </h4>
                     <h2 className='text-xl mb-6'>{user?.country ? <span>{user?.country} </span> : <span className='text-gray-600'> Country not Set</span>}</h2>

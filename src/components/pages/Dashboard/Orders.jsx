@@ -75,7 +75,7 @@ function Orders() {
                              <div class="flex items-center space-x-3">
                                  <div class="avatar">
                                      <div class="mask mask-squircle w-12 h-12">
-                                         <img src={imgURL} alt={productName} />
+                                         <img src={imgURL} className='rounderBorder' alt={productName} />
                                      </div>
                                  </div>
                                  <div>
@@ -112,7 +112,7 @@ function Orders() {
                                         <p class="py-4">{orderDelete?.productName} will be Delete from Database! if you click Yes</p>
                                         <div class="modal-action">
                                         <button className='btn btn-primary' onClick={() => handleDelete(orderDelete?._id)}>YES </button>
-                                         <label for="delete-order " class="btn">Cancel</label>
+                                         <label for="delete-order " onClick={() => setOrderDelete(null)} class="btn">Cancel</label>
                                         </div>
                                     </div>
                                 </div>

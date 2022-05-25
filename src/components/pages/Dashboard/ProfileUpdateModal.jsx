@@ -82,7 +82,7 @@ function ProfileUpdateModal({ userInfo, setUserInfo, refetch }) {
                                 </label>
                                 <textarea class="textarea " {...register("address")} placeholder="Present Address..."></textarea>
                             </div>
-                            <button className={`w-full btn btn-primary mt-[15px] block`} disabled={updating}>loading</button>
+                            <button className={`w-full btn btn-primary mt-[15px] block`} disabled={updating}>{updating ? "Updating" : "Update"}</button>
                         </form>
                     </div>
                 </div>

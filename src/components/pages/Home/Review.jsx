@@ -29,10 +29,10 @@ function Review() {
                                 <div className=''>
                                     <h2 className='text-2xl mb-4 text-center'> {review.name}</h2>
                                     <p className='px-3 text-center'>{review.review} </p>
-                                    <div className='my-4 text-xl flex gap-[8px] text-yellow justify-center'>
+                                    <div className='my-4 text-xl text-center flex gap-[8px] text-[#f9a10a] justify-center'>
                                         {
                                             [...Array(parseInt(review?.ratings)).keys()]?.map((rating, index) => {
-                                                return <span key={index} > <AiFillStar /></span>
+                                                return <span key={index} className='text-[#f9a10a]' > <AiFillStar /></span>
                                             })
                                         }
                                     </div>

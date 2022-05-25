@@ -44,13 +44,13 @@ function Projects() {
                     projects.map((project, index) => {
                         const { imgUrl, viewLink, description, title, technologies } = project;
                         return(
-                            <div  key={index} className="card  bg-base-100 shadow-xl">
-                              <figure><img src={imgUrl} alt="Project img" /></figure>
-                            <div className="card-body">
+                            <div  key={index} className="card shadow-xl">
+                              <figure><img className='project' src={imgUrl} alt="Project img" /></figure>
+                            <div className="card-body bg-[#0a131b] text-white">
                             <h2 className="card-title mb-3">{title}</h2>
-                            <p className=''> {description} </p> 
+                            <p className='text-[#3d4451]'> {description} </p> 
                             <br/>
-                           <p>Technologies are uses in this website : </p>
+                           <p className='text-[#7676ff]'>Technologies are uses in this website : </p>
                            <ul className='ml-[20px] list-disc mb-3'>
                                {
                                 technologies.map( (tech, index) => <li key={index}> {tech}</li>)

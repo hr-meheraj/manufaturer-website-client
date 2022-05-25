@@ -11,3 +11,33 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+
+.project {
+    padding: 20px;
+}
+.skills, .email ,.project{
+    background:linear-gradient(45deg, #092ed3d9, #21036abf);
+}
+.product{
+    background: linear-gradient(45deg,#3c018d,#5e10ff);
+}
+.rounderBorder{
+    border: 2px solid blue;
+    border-radius: 999px;
+}
+.location{
+    margin-top: 61px;
+    background: #899dfd;
+    padding: 6px;
+    font-weight:bold;
+    border-radius: 173px;
+    color: #0a131b;
+}
+.profile{
+    align-items: center;
+    background: #e1e1f969;
+    padding: 20px;
+    border-radius: 20px;
+    color: #0a131b;
+}

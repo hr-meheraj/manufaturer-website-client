@@ -43,7 +43,7 @@ function Reviews() {
             </div>
            <div className='max-x-[1180px] w-[95%]  mx-auto'>
            <div>
-                <h3 className='text-gray-500 font-semibold'> Total Reveiw Found : {reviews?.length} </h3>
+                <h3 className='text-gray-500 font-semibold my-[40px]'> Total Reveiw Found : {reviews?.length} </h3>
                 <hr />
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-[40px] gap-[20px] md:gap-[40px]'>
@@ -56,11 +56,11 @@ function Reviews() {
                                 </div>
                                 <div className=''>
                                     <h2 className='text-2xl mb-4 text-center'> {review.name}</h2>
-                                    <p className='px-3'>{review.review} </p>
-                                    <div className='my-4 text-xl flex gap-[8px] text-yellow justify-center'>
+                                    <p className='px-3 text-center'>{review.review} </p>
+                                    <div className='my-4 text-xl flex gap-[8px] text-[#f9a10a] justify-center'>
                                         {
                                             [...Array(parseInt(review?.ratings)).keys()]?.map((rating, index) => {
-                                                return <span key={index}> <AiFillStar /></span>
+                                                return <span key={index} className='text-[#f9a10a]'> <AiFillStar /></span>
                                             })
                                         }
                                     </div>

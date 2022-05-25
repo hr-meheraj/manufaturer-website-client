@@ -51,15 +51,15 @@ function Skills() {
         },
     ]
     return (
-        <div className='max-w-[720px] w-[95%] mx-auto mt-[40px] mb-[40px]'>
-            <h2 className='text-4xl text-primary font-bold'> My All Skills : </h2>
+        <div className='max-w-[720px] w-[95%] mx-auto mt-[40px] md:mt-[70px] mb-[40px]'>
+            <h2 className='text-2xl  text-primary font-bold'> My All Skills : </h2>
             <br/> 
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[20px] mt-[20px]'>
             {
                 skills.map(skill => {
                     const { title , Logo, id} = skill;
                     return(
-                        <div key={id} className='p-4 rounded-md shadow-md bg-[#112233] text-white'>
+                        <div key={id} className='p-4 rounded-md shadow-md text-white skills text-white'>
                             <div className='text-6xl mb-3 text-center w-full flex justify-center text-[#5fff2b]'> <Logo/> </div> 
                             <h2 className='text-center text-xl '>{title}</h2> 
                         </div>
