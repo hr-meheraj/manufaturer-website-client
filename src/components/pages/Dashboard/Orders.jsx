@@ -26,10 +26,16 @@ function Orders() {
         const response = await privateAxios.delete(`https://manufacturer-server.hrmeheraj.repl.co/purchase/${id}`);
         console.log("inside response ", response);
         if(response.status === 200){
+            const reqBody = { quantity : orderDelete?.quantity };
+           const resQ = await privateAxios.put(`https://manufacturer-server.hrmeheraj.repl.co/products/quantity/${orderDelete?.productId}`,reqBody);
+           if(resQ.status === 200){
             setLoading(false);
             setOrderDelete(null);
-            toast.success("Order Canceled Successfully");
             refetch();
+            toast.success("Order Canceled Successfully");
+           }else{
+             toast.error("Order Cenceled but Not update Quantity");
+           }
         }else{
             setLoading(false);
             toast.error("Order Deleted Successfully");
