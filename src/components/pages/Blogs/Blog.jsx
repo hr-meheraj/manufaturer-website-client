@@ -8,7 +8,7 @@ function Blog() {
     const [loading, setLoading] = useState(false);
     const getBlog = async () => {
         setLoading(true);
-        const { data } = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/blogs/${id}`);
+        const { data } = await axios.get(`https://tools-manufacture.herokuapp.com/blogs/${id}`);
         setBlog(data);
         setLoading(false);
     }

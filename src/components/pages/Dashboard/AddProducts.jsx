@@ -37,7 +37,7 @@ function AddProducts() {
                 perPrice : data.perPrice,
                 imgURL :  imgData?.data?.url
             }
-            const result = await privateAxios.post(`https://manufacturer-server.hrmeheraj.repl.co/products`, responseObject);
+            const result = await privateAxios.post(`https://tools-manufacture.herokuapp.com/products`, responseObject);
             console.log(result);
             setLoading(false);
             if(result.status === 200){

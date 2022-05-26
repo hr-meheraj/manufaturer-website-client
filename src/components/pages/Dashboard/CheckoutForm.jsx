@@ -18,7 +18,7 @@ function CheckoutForm({productInfo}) {
     const [clientSecret, setClientSecret] = useState('');
     const getClientSecret = async () => {
         setLoading(true);
-        const response = await axios.post('https://manufacturer-server.hrmeheraj.repl.co/create-payment-intent', { price : price});
+        const response = await axios.post('https://tools-manufacture.herokuapp.com/create-payment-intent', { price : price});
         setLoading(false);
         if(response?.data?.clientSecret){
             setClientSecret(response.data.clientSecret)
@@ -80,7 +80,7 @@ function CheckoutForm({productInfo}) {
                 paymentProductId : _id,
                 transactionId: paymentIntent.id
             }
-            const response = privateAxios.put(`https://manufacturer-server.hrmeheraj.repl.co/purchase/${_id}`, payment);
+            const response = privateAxios.put(`https://tools-manufacture.herokuapp.com/purchase/${_id}`, payment);
             if(response){
                 console.log(response);
             }

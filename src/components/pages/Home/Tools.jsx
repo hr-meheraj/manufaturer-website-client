@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Loading from '../../Shared/Loading/Loading'
 function Tools() {
     const getProducts = async () => {
-        const { data } = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/products?size=${6}&page=${0}`);
+        const { data } = await axios.get(`https://tools-manufacture.herokuapp.com/products?size=${6}&page=${0}`);
         return data;
     }
     const { data: products , isLoading, refetch } = useQuery(['products'], () => getProducts());

@@ -9,7 +9,7 @@ const useAdmin = user => {
         if(email){
             setAdminLoading(true);
            (async() =>{
-            const { data } = await privateAxios.get(`https://manufacturer-server.hrmeheraj.repl.co/users/admin/${email}`)
+            const { data } = await privateAxios.get(`https://tools-manufacture.herokuapp.com/users/admin/${email}`)
             setAdmin(data.admin);
             console.log("Use Amin insdie fucntion", data?.admin);
             setAdminLoading(false);

@@ -10,12 +10,12 @@ function Perchase() {
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(10);
     const getProducts = async () => {
-        const { data } = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/products?size=${size}&page=${page}`);
+        const { data } = await axios.get(`https://tools-manufacture.herokuapp.com/products?size=${size}&page=${page}`);
         return data;
     }
     const getPage = async () => {
         try{
-            const res = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/productsCount`);
+            const res = await axios.get(`https://tools-manufacture.herokuapp.com/productsCount`);
             const data = await res.data.count;
             setItemsFound(data);
             const page = Math.ceil(data / size);

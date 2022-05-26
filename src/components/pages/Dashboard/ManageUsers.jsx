@@ -11,7 +11,7 @@ const  ManageUsers = () =>  {
     const [loading, setLoading] = useState(false);
 
     const getData = async () => {
-        const { data } = await privateAxios(`https://manufacturer-server.hrmeheraj.repl.co/users`);
+        const { data } = await privateAxios(`https://tools-manufacture.herokuapp.com/users`);
         return data;
     }
     const { data: users, isLoading, refetch } = useQuery("all-users", () => getData());
@@ -20,7 +20,7 @@ const  ManageUsers = () =>  {
     }
     const handleAdmin = async (email) => {
         setLoading(true);
-        await privateAxios.put(`https://manufacturer-server.hrmeheraj.repl.co/users/admin/${email}`)
+        await privateAxios.put(`https://tools-manufacture.herokuapp.com/users/admin/${email}`)
         setLoading(false);
         toast.success("Success to Create an Admin");
         setAdminInfo(null);
@@ -28,7 +28,7 @@ const  ManageUsers = () =>  {
     }
     const handleDelete = async ( email) => {
         setLoading(true);
-        await privateAxios.delete(`https://manufacturer-server.hrmeheraj.repl.co/users/${email}`);
+        await privateAxios.delete(`https://tools-manufacture.herokuapp.com/users/${email}`);
         setLoading(false);
         toast.success("Successfully Deleted");
         setAdminInfo(null);

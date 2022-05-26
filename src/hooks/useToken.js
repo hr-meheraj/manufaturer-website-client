@@ -8,7 +8,7 @@ const useToken = (user) => {
     const body = {email : email };
     const getToken = async () => {
       if(email){
-        const { data } = await axios.put(`https://manufacturer-server.hrmeheraj.repl.co/users/${user?.email}`, body);
+        const { data } = await axios.put(`https://tools-manufacture.herokuapp.com/users/${user?.email}`, body);
         const accessToken = data?.token
         console.log(data, email);
         localStorage.setItem("accessToken", accessToken);

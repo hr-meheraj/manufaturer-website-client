@@ -10,14 +10,14 @@ function ManageProducts() {
     const [loading, setLoading] = useState(false);
     const [updating, setUpdating] = useState(false);
     const getProducts = async () => {
-        const response = await privateAxios.get('https://manufacturer-server.hrmeheraj.repl.co/products/');
+        const response = await privateAxios.get('https://tools-manufacture.herokuapp.com/products/');
         return response.data;
 
     }
     const { isLoading, data: products, refetch } = useQuery("all-products", () => getProducts());
     const handleDelete = async (id) => {
         setLoading(true);
-        const response = await privateAxios.delete(`https://manufacturer-server.hrmeheraj.repl.co/products/${id}`)
+        const response = await privateAxios.delete(`https://tools-manufacture.herokuapp.com/products/${id}`)
         if (response.status === 200) {
             toast.success("Succesfully Product Delete");
             setLoading(false);
@@ -37,7 +37,7 @@ function ManageProducts() {
     } = useForm();
     const onSubmit = async (data) => {
         setUpdating(true);
-        const response = await privateAxios.put(`https://manufacturer-server.hrmeheraj.repl.co/products/${productInfo?._id}`,data);
+        const response = await privateAxios.put(`https://tools-manufacture.herokuapp.com/products/${productInfo?._id}`,data);
         if(response.status === 200){
             toast.success("Product Updated Successfully");
             setUpdating(false);

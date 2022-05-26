@@ -17,7 +17,7 @@ function AddReview() {
     const {register,  handleSubmit,  reset,   formState: { errors } } = useForm();
 
     const getReview = async () => {
-        const { data } = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/reviews/${user?.email}`);
+        const { data } = await axios.get(`https://tools-manufacture.herokuapp.com/reviews/${user?.email}`);
         return data;
     }
     const { data : review, refetch, isLoading } = useQuery(['review', user], () => getReview() ); 
@@ -36,7 +36,7 @@ function AddReview() {
 
          if(review){
                  console.log("reviewInfo",reviewInfo);
-                 const resReview = await axios.put(`https://manufacturer-server.hrmeheraj.repl.co/reviews/${data.email}`, reviewInfo);
+                 const resReview = await axios.put(`https://tools-manufacture.herokuapp.com/reviews/${data.email}`, reviewInfo);
                  if(resReview.status === 200){
                     toast.success("Review Updated");
                     refetch();
@@ -44,7 +44,7 @@ function AddReview() {
                 }
                 setLoading(false);
            } else{
-                const response = await axios.post(`https://manufacturer-server.hrmeheraj.repl.co/reviews/`, reviewInfo);
+                const response = await axios.post(`https://tools-manufacture.herokuapp.com/reviews/`, reviewInfo);
                 console.log(response);
                 if(response.status===200){
                         toast.success("Review Added");

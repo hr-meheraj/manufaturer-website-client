@@ -15,7 +15,7 @@ function DynamicPurchasePage() {
     const navigate = useNavigate();
     const { id } = useParams();
     const getProduct = async () => {
-        const res = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/products/${id}`);
+        const res = await axios.get(`https://tools-manufacture.herokuapp.com/products/${id}`);
         return res.data;
     }
     const { data : product, isLoading, refetch} = useQuery('productDynamic', () => getProduct());
@@ -38,7 +38,7 @@ function DynamicPurchasePage() {
             productId : product._id,
             imgURL : product.imgURL
         };
-        const resPost = await privateAxios.post(`https://manufacturer-server.hrmeheraj.repl.co/perchase`, postBody);
+        const resPost = await privateAxios.post(`https://tools-manufacture.herokuapp.com/perchase`, postBody);
         setPurchasing(false);
         if(resPost.status === 200){
             toast.success("Success Purchead, Please Check you Dashboard Orders");

@@ -12,7 +12,7 @@ function Orders() {
     const [ loading, setLoading] = useState(false);
     const [user, authLoading] = useAuthState(auth);
     const getOrders = async() => {
-        const { data } =await privateAxios.get(`https://manufacturer-server.hrmeheraj.repl.co/purchase/${user?.email}`);
+        const { data } =await privateAxios.get(`https://tools-manufacture.herokuapp.com/purchase/${user?.email}`);
         return data;
     }
     const { data : orders, isLoading, refetch} = useQuery("orders", () => getOrders() );
@@ -23,11 +23,11 @@ function Orders() {
     const handleDelete = async(id) => {
         console.log("clicked button", id);
         setLoading(true);
-        const response = await privateAxios.delete(`https://manufacturer-server.hrmeheraj.repl.co/purchase/${id}`);
+        const response = await privateAxios.delete(`https://tools-manufacture.herokuapp.com/purchase/${id}`);
         console.log("inside response ", response);
         if(response.status === 200){
             const reqBody = { quantity : orderDelete?.quantity };
-           const resQ = await privateAxios.put(`https://manufacturer-server.hrmeheraj.repl.co/products/quantity/${orderDelete?.productId}`,reqBody);
+           const resQ = await privateAxios.put(`https://tools-manufacture.herokuapp.com/products/quantity/${orderDelete?.productId}`,reqBody);
            if(resQ.status === 200){
             setLoading(false);
             setOrderDelete(null);

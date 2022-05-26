@@ -11,7 +11,7 @@ function Profile() {
     const [userInfo, setUserInfo] = useState({});
     const { status, data : user , error, refetch } =  useQuery(["user", authUser], async () => {
         const { data } = await axios.get(
-         `https://manufacturer-server.hrmeheraj.repl.co/users/${authUser?.email}`
+         `https://tools-manufacture.herokuapp.com/users/${authUser?.email}`
         );
         return data;
       });

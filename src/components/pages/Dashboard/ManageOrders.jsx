@@ -8,20 +8,20 @@ function ManageOrders() {
     const [loading, setLoading] = useState(false);
     const [orderInfo, setOrderInfo] = useState(null);
     const getOrders = async () => {
-        const res = await privateAxios.get('https://manufacturer-server.hrmeheraj.repl.co/purchase');
+        const res = await privateAxios.get('https://tools-manufacture.herokuapp.com/purchase');
         console.log(res);
         return res.data;
     }
     const { data : orders , refetch, isLoading} = useQuery("orders-admin", () => getOrders());
      const handleDelete = async (id) => {
         setLoading(true);
-        const response = await privateAxios.delete(`https://manufacturer-server.hrmeheraj.repl.co/purchase/${id}`);
+        const response = await privateAxios.delete(`https://tools-manufacture.herokuapp.com/purchase/${id}`);
         const reqBody = { quantity : orderInfo?.quantity };
         console.log(orderInfo);
         console.log(response);
         console.log(reqBody);
         if (response.status === 200) {
-            const responseUpdateQuantity = await privateAxios.put(`https://manufacturer-server.hrmeheraj.repl.co/products/quantity/${orderInfo?.productId}`,reqBody);
+            const responseUpdateQuantity = await privateAxios.put(`https://tools-manufacture.herokuapp.com/products/quantity/${orderInfo?.productId}`,reqBody);
             console.log('inde quantitity', responseUpdateQuantity);
             if(responseUpdateQuantity.status === 200){
                  toast.success("Succesfully Order Delete");

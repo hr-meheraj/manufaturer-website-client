@@ -13,7 +13,7 @@ const stripePromise = loadStripe('pk_test_51L3D18LiBwdXb9tUmHWMLO3Z5tG5eqsFKGmBB
 function Payment() {
     const { id } = useParams();
     const getPaymentProduct = async () => {
-        const response = await privateAxios.get(`https://manufacturer-server.hrmeheraj.repl.co/purchase/payment/${id}`);
+        const response = await privateAxios.get(`https://tools-manufacture.herokuapp.com/purchase/payment/${id}`);
         console.log(response);
         return response?.data;
     }

@@ -9,12 +9,12 @@ function Reviews() {
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(6);
     const getReviews = async () => {
-        const { data } = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/reviews?size=${size}&page=${page}`);
+        const { data } = await axios.get(`https://tools-manufacture.herokuapp.com/reviews?size=${size}&page=${page}`);
         return data;
     }
     const getPage = async () => {
         try{
-            const res = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/reviewsCount`);
+            const res = await axios.get(`https://tools-manufacture.herokuapp.com/reviewsCount`);
             const data = await res.data.count;
             setItemsFound(data);
             const page = Math.ceil(data / size);

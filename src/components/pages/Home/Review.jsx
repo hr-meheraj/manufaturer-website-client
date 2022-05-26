@@ -5,7 +5,7 @@ import { AiFillStar } from 'react-icons/ai'
 import axios from 'axios'
 function Review() {
     const getReviews = async () => {
-        const { data } = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/reviews?size=6&page=0`);
+        const { data } = await axios.get(`https://tools-manufacture.herokuapp.com/reviews?size=6&page=0`);
         return data;
     }
     const { data: reviews, isLoading } = useQuery(['reviewsHome'], () => getReviews());

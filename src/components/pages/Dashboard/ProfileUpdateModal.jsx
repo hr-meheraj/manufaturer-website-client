@@ -15,7 +15,7 @@ function ProfileUpdateModal({ userInfo, setUserInfo, refetch }) {
     const onSubmit = async data => {
         setUpdating(true);
         await updateProfile({ displayName: data.name });
-        await axios.put(`https://manufacturer-server.hrmeheraj.repl.co/users/${userInfo?.email}`, data);
+        await axios.put(`https://tools-manufacture.herokuapp.com/users/${userInfo?.email}`, data);
         refetch();
         setUpdating(false);
         toast.success("User Updated Successfully")
