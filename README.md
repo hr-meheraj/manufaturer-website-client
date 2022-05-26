@@ -22,4 +22,4 @@ Popular Technologies uses of this website
 There are lots of features avaiable Explore super extreme..... 
 
 
-[!Website Image](https://i.ibb.co/HdHghTw/all-devices-white.png)
+![Website Image](https://i.ibb.co/HdHghTw/all-devices-white.png)
