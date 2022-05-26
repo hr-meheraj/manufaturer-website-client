@@ -114,7 +114,7 @@ function DynamicPurchasePage() {
                                     message : `Minimun product should be ${product?.minQuantity}+}`
                                 },
                                 max : {
-                                    value : product.quantity,
+                                    value : product?.quantity,
                                     message : `Maximun product quantity should be ${product?.quantity}`
                                 }
                             })} placeholder="Quantity" className="input input-bordered" />

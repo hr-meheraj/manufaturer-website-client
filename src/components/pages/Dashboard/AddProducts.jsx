@@ -31,7 +31,7 @@ function AddProducts() {
         if(imgData.success){
             const responseObject =  {
                 name : data.name,
-                quantity : data.quantity,
+                quantity : data?.quantity,
                 minQuantity : data.minQuantity,
                 description: data.description,
                 perPrice : data.perPrice,
@@ -129,7 +129,7 @@ function AddProducts() {
                                 }
                             })} placeholder="Quantity" className="input input-bordered" />
                             <label className="label">
-                                {errors?.quantity && <span className="label-text-alt text-red-500">{errors.quantity?.message}</span>}
+                                {errors?.quantity && <span className="label-text-alt text-red-500">{errors?.quantity?.message}</span>}
                             </label>
                         </div>
                         <div className="form-control">

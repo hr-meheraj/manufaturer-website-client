@@ -201,7 +201,7 @@ function ManageProducts() {
                                                                 }
                                                             })} placeholder="Quantity" className="input input-bordered" />
                                                             <label className="label">
-                                                                {errors?.quantity && <span className="label-text-alt text-red-500">{errors.quantity?.message}</span>}
+                                                                {errors?.quantity && <span className="label-text-alt text-red-500">{errors?.quantity?.message}</span>}
                                                             </label>
                                                         </div>
                                                         <div className="form-control">
