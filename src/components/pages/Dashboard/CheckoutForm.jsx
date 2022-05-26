@@ -5,6 +5,7 @@ import privateAxios from '../../../api/privateAxios';
 import Loading from '../../Shared/Loading/Loading';
 
 function CheckoutForm({productInfo}) {
+    
     const { _id, quantity, name, minQuantity, productName, email, perPrice  } = productInfo;
     const [price, setPrice] = useState(minQuantity * perPrice);
     const [loading, setLoading] = useState(false);
@@ -13,19 +14,37 @@ function CheckoutForm({productInfo}) {
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
     const [transactionId, setTransactionId] = useState('');
-    const [clientSecret, setClientSecret] = useState('');
-    const getClientSecret = async () => {
-        setLoading(true);
-        const response = await axios.post('https://tools-manufacture.herokuapp.com/create-payment-intent', { price : price});
-        setLoading(false);
-        if(response?.data?.clientSecret){
-            setClientSecret(response.data.clientSecret)
-        }
-    }
-    useEffect(() =>{
-        getClientSecret();
-    },[price])
+    const [clientSecret, setClientSecret] = useState(makeid(15));
 
+
+    // I have got an big error after deploying - when I check my website then there was nothing show from api 
+    // I have consoled heroku --logs and error is => connntion close without response ErrorCode = h13 
+    // I explore more of the blgos but there was not match my error . Thanks.... 
+    // const getClientSecret = async () => {
+        //     setLoading(true);
+    //     const response = await axios.post('https://tools-manufacture.herokuapp.com/create-payment-intent', { price : price});
+    //     setLoading(false);
+    //     if(response?.data?.clientSecret){
+    //         setClientSecret(response.data.clientSecret)
+    //     }
+    // }
+    // useEffect(() =>{
+    //     getClientSecret();
+    // },[price])
+    function makeid(length) {
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * 
+     charactersLength));
+       }
+       return result;
+    }
+    useEffect(() => {
+        const randomString= makeid(15)
+        setClientSecret(randomString)
+    }, [price]);
     /**
      * Some of the Error I have get from here - this may be backend error for that I have removed loading becuase
      * In my client page there are not showing stripe form. If I keep any loading there are not showing any payment form.
@@ -79,7 +98,7 @@ function CheckoutForm({productInfo}) {
                 paymentProductId : _id,
                 transactionId: paymentIntent.id
             }
-            const response = privateAxios.put(`https://tools-manufacture.herokuapp.com/purchase/${_id}`, payment);
+            const response = privateAxios.put(`https://tools-manufacture.herokuapp.com/purchase/${_id}`, clientSecret);
             if(response){
                 console.log(response);
             }
