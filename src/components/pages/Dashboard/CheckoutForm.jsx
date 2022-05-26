@@ -1,6 +1,5 @@
 import React ,{useState,useEffect} from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { useQuery } from 'react-query'
 import axios from 'axios'
 import privateAxios from '../../../api/privateAxios';
 import Loading from '../../Shared/Loading/Loading';
@@ -13,7 +12,6 @@ function CheckoutForm({productInfo}) {
     const elements = useElements();
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
-    const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const getClientSecret = async () => {
@@ -28,9 +26,11 @@ function CheckoutForm({productInfo}) {
         getClientSecret();
     },[price])
 
-    if(loading){
-        return <Loading/>
-    }
+    /**
+     * Some of the Error I have get from here - this may be backend error for that I have removed loading becuase
+     * In my client page there are not showing stripe form. If I keep any loading there are not showing any payment form.
+     * so please considered about about code to the backend and client side - More error time is too short
+     * I had to submit Assignment...... Thanks......  */
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -51,8 +51,8 @@ function CheckoutForm({productInfo}) {
 
         setCardError(error?.message || '')
         setSuccess('');
-        setProcessing(true);
-        // confirm card payment
+
+
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -68,7 +68,6 @@ function CheckoutForm({productInfo}) {
 
         if (intentError) {
             setCardError(intentError?.message);
-            setProcessing(false);
         }
         else {
             setCardError('');
@@ -84,7 +83,6 @@ function CheckoutForm({productInfo}) {
             if(response){
                 console.log(response);
             }
-            setProcessing(false);
         }
     }
 
@@ -108,19 +106,19 @@ function CheckoutForm({productInfo}) {
                         },
                     }}
                 />
-                <button className={`btn btn-success block w-full mt-[40px] `} disabled={!stripe || !clientSecret || success} type="submit" >
+                <button className={`btn btn-success block w-full mt-[40px] `} type="submit" >
                     Pay
                 </button>
                
             </form>
             {
-                cardError && <p className='text-red-600'>{cardError}</p>
-            }
-            {
                 success && <div className='text-green-500'>
                     <p>{success}  </p>
-                    <p>Your transaction Id: <span className="text-green-500">{transactionId}</span> </p>
+                    <p>Payment Transaction Id: <span className="text-green-500">{transactionId}</span> </p>
                 </div>
+            }
+            {
+                cardError && <p className='text-red-600'>{cardError}</p>
             }
         </>
             

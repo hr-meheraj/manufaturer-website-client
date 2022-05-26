@@ -78,9 +78,9 @@ function AddReview() {
                <label className='btn btn-primary' onClick={() => setIsOpen(!isOpen)}> {isOpen ? "Hide Form" : "Show Form"} </label>
                  
              </div>
-             <div className=' w-full flex justify-center items-center '>
+             <div className=' w-full max-w-[95%] w-[320px] mx-auto'>
                 {review && (
-                    <div className='p-4 rounded-md max-w-[95%] w-[320px] flex justify-center items-center shadow-md mt-[20px]'>
+                    <div className='p-4 rounded-md  flex flex-col justify-center items-center shadow-md mt-[20px]'>
                         <div className='my-[10px]  '>
                             <img src={review.imgURL || 'https://cdn.lorem.space/images/face/.cache/500x0/stefan-stefancik-QXevDflbl8A-unsplash.jpg'} className='w-[140px] h-[140px] avatar rounded-full' alt={review.name} />
                          </div>

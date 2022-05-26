@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaReact, FaNodeJs } from 'react-icons/fa'
 import { GrStripe } from 'react-icons/gr'
-import { SiTailwindcss,SiExpress,SiReactrouter, SiFirebase,SiMongodb ,SiJsonwebtokens} from 'react-icons/si'
+import { SiTailwindcss,SiHeroku,SiExpress,SiNetlify ,SiReactrouter, SiFirebase,SiMongodb ,SiJsonwebtokens} from 'react-icons/si'
 function Skills() {
     const skills = [
         {
@@ -49,6 +49,16 @@ function Skills() {
             Logo : GrStripe,
             title : "Stripe Payment"
         },
+        {
+            id:10,
+            Logo : SiHeroku,
+            title : "Heroku"
+        },
+        {
+            id:11,
+            Logo : SiNetlify,
+            title : "Netlify"
+        }
     ]
     return (
         <div className='max-w-[720px] w-[95%] mx-auto mt-[40px] md:mt-[70px] mb-[40px]'>
