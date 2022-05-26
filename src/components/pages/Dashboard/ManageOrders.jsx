@@ -93,7 +93,9 @@ function ManageOrders() {
                                     <td>
                                     {order?.address}
                                     <br/>
-                                    <span class="badge badge-ghost badge-sm">{order?.email}</span>
+                                    <span class="badge badge-ghost badge-sm">{order?.email}</span> <br/>
+                                    transactionId
+                                    {order?.transactionId && <span class="badge badge-success badge-sm">Piad</span>}
                                     </td>
                                     <td>
                                     <span class="badge badge-lg ">Per Price ${order?.perPrice}</span>
@@ -101,7 +103,7 @@ function ManageOrders() {
                                     <span class="font-bold">Total Price:{order?.perPrice * order?.quantity}</span>
                                     </td>
                                     <th>
-                                    <label for='delete-orders-admin' onClick={() => setOrderInfo(order)} className="btn btn-error btn-xs ">Delete</label>
+                                    <label for='delete-orders-admin' onClick={() => setOrderInfo(order)} disabled={order?.transactionId} className="btn btn-error btn-xs ">Delete</label>
                                     </th>
                                 </tr>
                                 )

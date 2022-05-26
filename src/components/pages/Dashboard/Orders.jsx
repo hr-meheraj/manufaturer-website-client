@@ -93,16 +93,16 @@ function Orders() {
                             <td>
                             {email}
                             <br/>
-                               {order?.paid &&   <span className="badge badge-primary badge-sm">{order?.transactionId}</span>}
-                               {!order?.paid &&   <span className="badge badge-primary badge-sm">Not Paid yet</span>}
+                               {order?.transactionId &&   <span className="badge badge-primary badge-sm">{order?.transactionId}</span>}
+                              <span className="badge badge-primary badge-sm">{order?.transactionId ? "Paid" : "Not Paid yet"}</span>
                             </td>
                              <td> {quantity}</td>
                             <td>${parseInt(quantity) * parseInt(perPrice)}</td>
                           <th>
-                                {!order?.paid &&  <Link to={`payment/${_id}`} className="btn btn-primary btn-xs" >Pay</Link>}
-                                {order?.paid && <button className='btn btn-xs btn-disabled'>Paid</button>}
+                                {!order?.transactionId &&  <Link to={`payment/${_id}`} className="btn btn-primary btn-xs" >Pay</Link>}
+                                {order?.transactionId && <button className='btn btn-xs btn-disabled'>Paid</button>}
                            </th>
-                           <th>  {!order?.paid &&  <label for='delete-order' onClick={() => handleSetOrderInfo(order)} className={`btn btn-danger btn-xs ${loading && "btn-disabled"}`}>Cancel</label>}</th>
+                           <th>  {!order?.transactionId &&  <label for='delete-order' onClick={() => handleSetOrderInfo(order)} className={`btn btn-danger btn-xs ${loading && "btn-disabled"}`}>Cancel</label>}</th>
                          </tr>
                                 )
                             })

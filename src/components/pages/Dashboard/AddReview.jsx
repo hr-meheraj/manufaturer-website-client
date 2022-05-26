@@ -14,12 +14,7 @@ function AddReview() {
     const [user , authLoading] = useAuthState(auth);
     const [isOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(false);
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm();
+    const {register,  handleSubmit,  reset,   formState: { errors } } = useForm();
 
     const getReview = async () => {
         const { data } = await axios.get(`https://manufacturer-server.hrmeheraj.repl.co/reviews/${user?.email}`);
@@ -28,35 +23,44 @@ function AddReview() {
     const { data : review, refetch, isLoading } = useQuery(['review', user], () => getReview() ); 
 
 
-    const onSubmit = async ( data) => {
+    const onSubmit = async (data) => {
+
         setLoading(true);
+
         const reviewInfo = {
             email : data.email,
             name : data.name,
             ratings : data.ratings,
             review : data.review
-        };
-        if(review){
-            console.log("reviewInfo",reviewInfo);
-            await axios.put(`https://manufacturer-server.hrmeheraj.repl.co/reviews/${data.email}`, reviewInfo);
-            toast.success("Review Updated");
-            refetch();
-            reset();
-            setLoading(false);
-        }else{
+          };
 
-            console.log("reviewInfo",reviewInfo);
-            const response = await axios.post(`https://manufacturer-server.hrmeheraj.repl.co/reviews/`, reviewInfo);
-            console.log(response);
-            if(response){
-                toast.success("Review Added");
-                refetch();
+         if(review){
+                 console.log("reviewInfo",reviewInfo);
+                 const resReview = await axios.put(`https://manufacturer-server.hrmeheraj.repl.co/reviews/${data.email}`, reviewInfo);
+                 if(resReview.status === 200){
+                    toast.success("Review Updated");
+                    refetch();
+                    reset();
+                }
                 setLoading(false);
-                reset();
-            }
+           } else{
+                const response = await axios.post(`https://manufacturer-server.hrmeheraj.repl.co/reviews/`, reviewInfo);
+                console.log(response);
+                if(response.status===200){
+                        toast.success("Review Added");
+                        refetch();
+                        setLoading(false);
+                        reset();
+                 } else{
+                        toast.error("Failed to Add Review, Please Check the Internet");
+                        setLoading(false);
+                    }
+                setLoading(false);
+           }
+            
+    }//
 
-        }
-    }
+
     return (
         <div className='mt-[20px] max-w-[720px] mx-auto w-[95%] rounded-md shadow-md pb-[50px]'>
             {
@@ -76,8 +80,8 @@ function AddReview() {
              </div>
              <div className=' w-full flex justify-center items-center '>
                 {review && (
-                    <div className='p-4 rounded-md shadow-md mt-[20px]'>
-                        <div className='my-[10px] max-w-[95%] w-[320px] flex justify-center items-center'>
+                    <div className='p-4 rounded-md max-w-[95%] w-[320px] flex justify-center items-center shadow-md mt-[20px]'>
+                        <div className='my-[10px]  '>
                             <img src={review.imgURL || 'https://cdn.lorem.space/images/face/.cache/500x0/stefan-stefancik-QXevDflbl8A-unsplash.jpg'} className='w-[140px] h-[140px] avatar rounded-full' alt={review.name} />
                          </div>
                          <div className=''>
@@ -172,7 +176,7 @@ function AddReview() {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                             <button className={`btn btn-primary`} type="submit">{review?.ratings ? "Update" : "Add Review"}</button> 
+                             <button className={`btn btn-primary ${loading && "loading"}`} type="submit">{review?.ratings ? "Update" : "Add Review"}</button> 
                         </div>
                         </form>
                     )

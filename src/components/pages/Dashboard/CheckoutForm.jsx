@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React ,{useState,useEffect} from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useQuery } from 'react-query'
 import axios from 'axios'
@@ -8,6 +8,7 @@ import Loading from '../../Shared/Loading/Loading';
 function CheckoutForm({productInfo}) {
     const { _id, quantity, name, minQuantity, productName, email, perPrice  } = productInfo;
     const [price, setPrice] = useState(minQuantity * perPrice);
+    const [loading, setLoading] = useState(false);
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -15,21 +16,21 @@ function CheckoutForm({productInfo}) {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-
     const getClientSecret = async () => {
+        setLoading(true);
         const response = await axios.post('https://manufacturer-server.hrmeheraj.repl.co/create-payment-intent', { price : price});
-        return response.data;
+        setLoading(false);
+        if(response?.data?.clientSecret){
+            setClientSecret(response.data.clientSecret)
+        }
     }
-    const { data : Secret, isLoading, refetch } = useQuery(["clientSecret",price], () => getClientSecret());
-    if(isLoading){
+    useEffect(() =>{
+        getClientSecret();
+    },[price])
+
+    if(loading){
         return <Loading/>
     }
-    if(Secret){
-        console.log(clientSecret);
-        setClientSecret(Secret.clientSecret);
-    }
-
-    
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -75,13 +76,11 @@ function CheckoutForm({productInfo}) {
             console.log(paymentIntent);
             setSuccess('Congratulation! Your payment is completed.')
             
-            //store payment on database
             const payment = {
                 paymentProductId : _id,
-                transactionId: paymentIntent.id,
-                paid : true
+                transactionId: paymentIntent.id
             }
-            const response = privateAxios.put(`https://manufacturer-server.hrmeheraj.repl.co/${_id}`, payment);
+            const response = privateAxios.put(`https://manufacturer-server.hrmeheraj.repl.co/purchase/${_id}`, payment);
             if(response){
                 console.log(response);
             }
@@ -109,7 +108,7 @@ function CheckoutForm({productInfo}) {
                         },
                     }}
                 />
-                <button className={`btn btn-success block w-full mt-[30px] `} type="submit" disabled={!stripe || !clientSecret || success}>
+                <button className={`btn btn-success block w-full mt-[40px] `} disabled={!stripe || !clientSecret || success} type="submit" >
                     Pay
                 </button>
                
