@@ -4,7 +4,7 @@ import { BsGithub } from 'react-icons/bs'
 import { ImLinkedin2 } from 'react-icons/im'
 function Banner() {
     const socialAccounts = [
-        { Icons : SiGmail, link : 'mailto:hrmeheraj2021@gmail.com'},
+        { Icons : SiGmail, link : 'mailto:habib.meheraj@gmail.com'},
         { Icons : BsGithub , link : 'https://github.com/hr-meheraj'},
         { Icons : ImLinkedin2 , link : 'https://linkedin.com/in/hrmeheraj'},
     ]
