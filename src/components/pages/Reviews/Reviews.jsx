@@ -41,18 +41,18 @@ function Reviews() {
                 <p className='my-[15px] text-gray-500 text-center'> Explore some review and trust us. </p>
                 </div>
             </div>
-           <div className='max-x-[1180px] w-[95%]  mx-auto'>
+           <div className='max-w-[1000px] w-[95%]  mx-auto'>
            <div>
-                <h3 className='text-gray-500 font-semibold my-[40px]'> Total Reveiw Found : {reviews?.length} </h3>
+                <h3 className='text-gray-500 font-semibold my-[40px]'> Total Reveiw Found : {itmesFound} </h3>
                 <hr />
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-[40px] gap-[20px] md:gap-[40px]'>
+            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-[40px] gap-[20px] md:gap-[40px]'>
                 {
                     reviews?.map(review => {
                         return (
                             <div key={review._id} className='p-4 rounded-md shadow-md mt-[20px]'>
                                 <div className='my-[10px] flex justify-center items-center'>
-                                    <img src={review.imgURL || 'https://cdn.lorem.space/images/face/.cache/500x0/stefan-stefancik-QXevDflbl8A-unsplash.jpg'} className='w-[140px] h-[140px] avatar rounded-full' alt={review.name} />
+                                    <img src={review.imgURL || 'https://www.w3schools.com/howto/img_avatar.png'} className='w-[140px] h-[140px] avatar rounded-full' alt={review.name} />
                                 </div>
                                 <div className=''>
                                     <h2 className='text-2xl mb-4 text-center'> {review.name}</h2>
@@ -76,7 +76,7 @@ function Reviews() {
                       count && 
                       [...Array(count).keys()].map((each,index) => {
                           return(
-                            <button className={`btn btn-md ${(each === page) && 'btn-active'}`} key={index}>{each + 1}</button>
+                            <button onClick={(() => setPage(each))} className={`btn btn-md ${(each === page) && 'btn-active'}`} key={index}>{each + 1}</button>
                           )
                       })
                   }

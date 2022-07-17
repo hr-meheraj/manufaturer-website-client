@@ -16,7 +16,9 @@ function Navbar({ children }) {
         return <Loading />
     }
     return (
-        <div className="drawer  drawer-end">
+        <div className=''>
+            
+        <div className="  drawer-end">
             <input id="nav-menu-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 <div className="w-full navbar shadow-md">
@@ -76,6 +78,7 @@ function Navbar({ children }) {
                 </ul>
             </div>
             <ToastContainer/>
+        </div>
         </div>
     )
 }

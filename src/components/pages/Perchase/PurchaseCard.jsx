@@ -5,7 +5,7 @@ function PurchaseCard({product}) {
     const { _id, name, quantity, minQuantity, description, perPrice, imgURL } = product;
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
-        <figure><img src={imgURL} className='product' alt={name}/></figure>
+        <figure><img src={imgURL} className='product w-full bg-[#1fa5d9b5] h-[250px]' alt={name}/></figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
           <p>{description}</p>

@@ -31,7 +31,7 @@ function Perchase() {
 
     const { data: products , isLoading, refetch } = useQuery(['products', size, page], () => getProducts());
     return (
-        <div>
+        <div className=''>
             {
                 isLoading && <Loading/>
             }
@@ -41,7 +41,7 @@ function Perchase() {
                     <p className='px-4 py-2'>Explore All Tools and Book now easily. </p>
                 </div>
              </div>
-            <div className='max-x-[1180px] w-[95%]  mx-auto'>
+            <div className=' w-[95%]  mx-auto'>
             <div>
                  <h3 className='text-xl font-semibold text-center'>Total Tools Found : {products?.length}</h3>
                  <br/>
@@ -49,19 +49,19 @@ function Perchase() {
                  <br/>
             </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-[40px] gap-[20px] md:gap-[40px]'>
+                <div className='max-w-[1000px] w-[95%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-[40px] gap-[20px] md:gap-[40px]'>
                 {
                     products?.map(product => <PurchaseCard key={product._id} product={product}/>)
                 }
                 </div>
 
-            <div className='text-center mb-[50px]'>
+            <div className='text-center mb-[50px] max-w-[1000px] w-[95%] mx-auto'>
                 <div className="btn-group" >
                   {
                       count && 
                       [...Array(count).keys()].map((each,index) => {
                           return(
-                            <button className={`btn btn-md ${(each === page) && 'btn-active'}`} key={index}>{each + 1}</button>
+                            <button onClick={() => setPage(each)} className={`btn btn-md ${(each === page) && 'btn-active'}`} key={index}>{each + 1}</button>
                           )
                       })
                   }

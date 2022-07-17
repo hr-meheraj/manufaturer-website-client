@@ -14,7 +14,7 @@ function Banner() {
 //        })
 //    }, [])
     return (
-        <div className="hero py-[60px] mt-[20px] text-white bg-[#0a131b] mt-[40px] pl-[40px] rounded-md">
+        <div className=" hero py-[60px] mt-[20px] text-white bg-[#0a131b] mt-[40px] pl-[40px] rounded-md">
             <div className="hero-content flex-col lg:flex-row-reverse ">
                 {/* <div className="lottie-container w-full md:w-6/12" ref={container}> </div> */}
                 <div className="lottie-container w-full lg:w-6/12">

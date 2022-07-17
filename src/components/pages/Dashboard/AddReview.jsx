@@ -82,7 +82,7 @@ function AddReview() {
                 {review && (
                     <div className='p-4 rounded-md  flex flex-col justify-center items-center shadow-md mt-[20px]'>
                         <div className='my-[10px]  '>
-                            <img src={review.imgURL || 'https://cdn.lorem.space/images/face/.cache/500x0/stefan-stefancik-QXevDflbl8A-unsplash.jpg'} className='w-[140px] h-[140px] avatar rounded-full' alt={review.name} />
+                            <img src={review.imgURL || 'https://www.w3schools.com/howto/img_avatar.png'} className='w-[140px] h-[140px] avatar rounded-full' alt={review.name} />
                          </div>
                          <div className=''>
                             <h2 className='text-2xl mb-4 text-center'> {review.name}</h2> 

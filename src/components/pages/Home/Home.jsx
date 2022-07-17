@@ -10,7 +10,7 @@ import Tools from './Tools';
 function Home() {
 
     return (
-        <div className='max-x-[1180px] w-[95%]  mx-auto'>        
+        <div className=''>        
             <Banner/>
             <Tools/>
             <Review/>

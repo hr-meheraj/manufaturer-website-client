@@ -2,7 +2,10 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 function Footer() {
     return (
-        <footer className="footer bg-[#0a131b] text-white  rounded-md  mt-[40px] p-10 ">
+      <div className='bg-[#0a131b] '>
+
+      
+        <footer className="footer max-w-[1000px] w-[95%] mx-auto text-white  rounded-md  mt-[40px] p-10 ">
 
         <div>
           <span className="footer-title">Services</span> 
@@ -25,6 +28,7 @@ function Footer() {
           <Link  to='/' className="link link-hover">Cookie policy</Link>
         </div>
       </footer> 
+      </div>
         )
 }
 

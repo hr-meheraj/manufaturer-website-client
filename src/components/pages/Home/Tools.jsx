@@ -10,7 +10,7 @@ function Tools() {
     }
     const { data: products , isLoading, refetch } = useQuery(['products'], () => getProducts());
     return (
-        <div>
+        <div className='max-w-[1000px] w-[95%] mx-auto'>
             {
               isLoading && <Loading/>
             }
@@ -24,7 +24,7 @@ function Tools() {
                         const { _id, name, quantity, minQuantity, description, perPrice, imgURL } = product;
                         return (
                             <div className="card card-compact bg-base-100 shadow-xl">
-                            <figure><img src={imgURL} className='product' alt={name}/></figure>
+                            <figure><img src={imgURL} className='product bg-[#1fa5d9b5] w-full h-[250px]' alt={name}/></figure>
                             <div className="card-body">
                               <h2 className="card-title">{name}</h2>
                               <p>{description}</p>
